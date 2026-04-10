@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tuesday Teaching Tips — Sylvain Masclin</title>
-  <meta name="description" content="All 31 Tuesday Teaching Tips — weekly pedagogy newsletter by Sylvain Masclin in partnership with UC Merced CETL.">
+  <meta name="description" content="All Tuesday Teaching Tips — weekly pedagogy newsletter by Sylvain Masclin in partnership with UC Merced CETL.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
@@ -57,7 +57,6 @@
     .filter-btn{font-family:'DM Sans',sans-serif;font-size:0.8rem;font-weight:500;padding:0.32rem 0.9rem;border-radius:100px;border:1.5px solid #c8ddef;background:#fff;color:#4a6d8c;cursor:pointer;transition:all 180ms;white-space:nowrap}
     .filter-btn:hover{border-color:#FF7E00;color:#FF7E00}
     .filter-btn.active{background:#FF7E00;border-color:#FF7E00;color:#fff;font-weight:600}
-    /* topic-specific active colours */
     .filter-btn[data-topic="ai"].active{background:#1a3a52;border-color:#1a3a52;color:#fff}
     .filter-btn[data-topic="engagement"].active{background:#2e7d32;border-color:#2e7d32;color:#fff}
     .filter-btn[data-topic="assessment"].active{background:#6a1b9a;border-color:#6a1b9a;color:#fff}
@@ -93,17 +92,19 @@
     .tip-card__chevron.open svg{stroke:#fff}
 
     .tip-card__body{max-height:0;overflow:hidden;transition:max-height 0.38s cubic-bezier(0.4,0,0.2,1)}
-    .tip-card__body.open{max-height:1400px}
+    .tip-card__body.open{max-height:3000px}
     .tip-card__body-inner{padding:0.9rem 1.25rem 1.25rem;border-top:1px solid #e8f4ff}
     .tip-card__body-inner p{font-family:'DM Sans',sans-serif;font-size:0.875rem;color:#1a3a52;line-height:1.78;margin-bottom:0.6rem}
     .tip-card__body-inner p:last-child{margin-bottom:0}
     .tip-card__body-inner strong{color:#0d2233;font-weight:600}
     .tip-card__body-inner em{font-style:italic;color:#4a6d8c}
-    .tip-card__body-inner ul{padding-left:1.15rem;margin-bottom:0.6rem}
+    .tip-card__body-inner ul,.tip-card__body-inner ol{padding-left:1.15rem;margin-bottom:0.6rem}
     .tip-card__body-inner li{font-family:'DM Sans',sans-serif;font-size:0.875rem;color:#1a3a52;line-height:1.75;margin-bottom:0.28rem}
     .tip-card__body-inner a{color:#FF7E00;text-decoration:none}
     .tip-card__body-inner a:hover{text-decoration:underline}
     .tip-card__body-inner code{font-family:monospace;font-size:0.82rem;background:#f0f8ff;padding:0.1em 0.4em;border-radius:4px;color:#1a3a52}
+    .tip-card__body-inner hr{border:none;border-top:1px solid #e8f4ff;margin:0.75rem 0}
+    .tip-note{font-family:'DM Sans',sans-serif;font-size:0.75rem !important;color:#7a9ab8 !important;font-style:italic;line-height:1.5 !important;margin-top:0.5rem !important}
 
     /* no-results message */
     .no-results{display:none;font-family:'DM Sans',sans-serif;font-size:0.95rem;color:#4a6d8c;padding:2rem 0;text-align:center}
@@ -178,7 +179,7 @@
         <p class="page-header__intro">Short, practical pedagogy tips sent weekly to UC Merced faculty. Every tip is grounded in real classroom experience and developed in partnership with CETL.</p>
       </div>
       <div class="page-header__logo-col">
-        <img src="data:image/jpeg;base64,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" alt="Tuesday Teaching Tips logo" class="page-header__ttt-logo">
+        <img src="images/TTT.png" alt="Tuesday Teaching Tips logo" class="page-header__ttt-logo">
       </div>
     </div>
   </header>
@@ -210,7 +211,7 @@
       </div>
 
       <!-- Results count -->
-      <p class="results-count" id="results-count"><strong>31</strong> tips</p>
+      <p class="results-count" id="results-count"><strong>33</strong> tips</p>
 
       <!-- No-results -->
       <p class="no-results" id="no-results">No tips match this filter. Try another topic.</p>
@@ -218,7 +219,34 @@
       <!-- ══ TIPS GRID ════════════════════════════════ -->
       <div class="tips-grid" id="tips-grid">
 
-        <!-- data-topics is a space-separated list of tag keys -->
+        <!-- ── SPRING 2026 ─────────────────────────── -->
+
+        <article class="tip-card" data-topics="assessment classroom">
+          <div class="tip-card__header" role="button" tabindex="0" aria-expanded="false">
+            <div class="tip-card__meta">
+              <div class="tip-card__top"><span class="tip-card__code">S26-05</span></div>
+              <h3 class="tip-card__title">Five Ways to Add Extra Credit</h3>
+              <div class="tip-card__tags"><span class="tag tag--assessment">Assessment</span><span class="tag tag--classroom">Classroom Mgmt</span></div>
+            </div>
+            <div class="tip-card__chevron" aria-label="Expand tip"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </div>
+          <div class="tip-card__body"><div class="tip-card__body-inner">
+            <p>Happy Tuesday!</p>
+            <p>Offering extra-credit activities can provide students with additional motivation to finish the semester strong.</p>
+            <p>While Catcourses doesn't have a single obvious extra-credit button, there are many ways to set it up:</p>
+            <ul>
+              <li><strong>Create a 0-point assignment:</strong> Students only earn points if they complete it; no penalty if they skip it</li>
+              <li><strong>Add extra points to an existing assignment:</strong> Manually enter bonus points in the gradebook (e.g., award 25 points on a 20-point assignment)</li>
+              <li><strong>Use Fudge Points on quizzes:</strong> Add (or subtract) points from a student's overall quiz score in SpeedGrader</li>
+              <li><strong>Add an extra-credit criterion to your rubric:</strong> Make the rubric total higher than the assignment total so non-participants aren't penalized</li>
+              <li><strong>Create an Extra Credit category (weighted grades only):</strong> Set the category above 100% (e.g., 10%) so it's purely bonus</li>
+            </ul>
+            <p>Watch this 5-minute video to see each method in action.</p>
+            <p>Have a great teaching week!<br>Sylvain</p>
+            <hr>
+            <p class="tip-note">Note: This week's tip was refined with the assistance of Claude Sonnet 4.5, an AI language model. Tuesday Teaching Tips are developed in partnership with UC Merced CETL.</p>
+          </div></div>
+        </article>
 
         <article class="tip-card" data-topics="engagement classroom">
           <div class="tip-card__header" role="button" tabindex="0" aria-expanded="false">
@@ -230,13 +258,29 @@
             <div class="tip-card__chevron" aria-label="Expand tip"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
           </div>
           <div class="tip-card__body"><div class="tip-card__body-inner">
-            <p>Student motivation naturally dips as the semester progresses, but small changes can make a big impact.</p>
+            <p>Happy Tuesday!</p>
+            <p>Feeling the mid-semester slump in your classroom? You're not alone. Student motivation naturally dips as the semester progresses, but small changes can make a big impact.</p>
+            <p>Here are practical strategies to re-energize your students:</p>
             <p><strong>Add Movement and Play</strong></p>
-            <ul><li>Offer a brief, structured break during longer class sessions</li><li>Try Team Jeopardy or quick minute-to-win-it challenges</li><li>Organize a walk-and-talk discussion to get students out of their seats</li></ul>
+            <ul>
+              <li>Offer a brief, structured break during longer class sessions</li>
+              <li>Try Team Jeopardy or quick minute-to-win-it challenges</li>
+              <li>Organize a walk-and-talk discussion to get students out of their seats</li>
+            </ul>
             <p><strong>Increase Personal Connection</strong></p>
-            <ul><li>Invite a guest speaker to bring fresh energy and real-world insights</li><li>Use small-group peer discussions to break up lecture time</li></ul>
+            <ul>
+              <li>Invite a guest speaker to bring fresh energy and real-world insights</li>
+              <li>Use small-group peer discussions to break up lecture time</li>
+            </ul>
             <p><strong>Create Flexibility</strong></p>
-            <ul><li>Survey students mid-semester: ask what's working and what's not</li><li>Consider adjusting workloads or deadlines for the rest of the semester</li></ul>
+            <ul>
+              <li>Survey students mid-semester: ask what's working and what's not (see previous teaching tip)</li>
+              <li>Consider adjusting workloads or deadlines for the rest of the semester</li>
+            </ul>
+            <p>Even one or two small adjustments can shift the energy in your classroom and carry students through to finals week.</p>
+            <p>Have a great teaching week!<br>Sylvain</p>
+            <hr>
+            <p class="tip-note">Note: This week's tip was refined with the assistance of Claude Sonnet 4.5, an AI language model. Tuesday Teaching Tips are developed in partnership with UC Merced CETL.</p>
           </div></div>
         </article>
 
@@ -250,9 +294,23 @@
             <div class="tip-card__chevron" aria-label="Expand tip"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
           </div>
           <div class="tip-card__body"><div class="tip-card__body-inner">
-            <p>Mid-semester is the perfect time to check how students feel about your learning environment. Take 15–20 minutes for a direct <strong>think-pair-share</strong>:</p>
-            <ul><li>Students form pairs, then groups of four, to discuss what's working and what could improve</li><li>Guide reflection: <em>What's been most helpful? What's caused the most difficulty? What suggestions do you have?</em></li></ul>
-            <p>This creates a productive class conversation, provides actionable feedback, and shows students you care about their journey.</p>
+            <p>Happy Tuesday!</p>
+            <p>Time flies and we are already close to mid-semester (mid-semester grades are due Tuesday 03/17 at noon time). This sounds like a perfect time to check how your students feel about your learning environment and delivery.</p>
+            <p>There are many ways to evaluate your classroom environment: online or paper surveys, SATAL evaluation, or quick polls. Today, I would suggest taking 15-20 minutes of your class time for a direct discussion with your students, running a think-pair-share:</p>
+            <ul>
+              <li>Students form pairs, then groups of four, to discuss what's working and what could improve.</li>
+              <li>Guide them on their learning reflection:
+                <ul>
+                  <li>What has been most helpful for your learning in this class so far?</li>
+                  <li>What has caused you the most difficulty in terms of learning in this class so far?</li>
+                  <li>What suggestion(s) can you make that would enhance your learning experience in this class?</li>
+                </ul>
+              </li>
+            </ul>
+            <p>This will create a productive class conversation, provide you with applicable feedback (changes don't have to wait until next semester 😊), and show your students that you care about their journey.</p>
+            <p>Have a great teaching week!<br>Sylvain</p>
+            <hr>
+            <p class="tip-note">Note: This week's tip was refined with the assistance of Claude Sonnet 4.5, an AI language model. Tuesday Teaching Tips are developed in partnership with UC Merced CETL.</p>
           </div></div>
         </article>
 
@@ -266,9 +324,30 @@
             <div class="tip-card__chevron" aria-label="Expand tip"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
           </div>
           <div class="tip-card__body"><div class="tip-card__body-inner">
-            <p>Printed group activities generate better collaboration than digital ones. Students talk, share ideas, and work together instead of scrolling on their screens.</p>
-            <ul><li>Distribute one printed activity per group of ~4 students</li><li>Have students write their names on it for accountability</li></ul>
-            <p><strong>Pros:</strong> Faster to prepare, no device issues, forces face-to-face engagement.<br><strong>Cons &amp; solutions:</strong> Create a quick Catcourses quiz keyword for participation credit; one print per group minimizes waste.</p>
+            <p>Happy Tuesday!</p>
+            <p>Would you like stronger student engagement and collaboration in class? Try switching some digital activities back to paper.</p>
+            <p>After experimenting with both formats in small to large classes, I have observed that printed group activities generate better collaboration than digital ones. Students talk, share ideas, and work together instead of scrolling on their screens.</p>
+            <p>Here's the approach:</p>
+            <ul>
+              <li>Distribute one printed activity per group of ~4 students</li>
+              <li>Have students write their names on it for accountability</li>
+              <li>Watch the magic of face-to-face collaboration unfold</li>
+            </ul>
+            <p><strong>Pros:</strong></p>
+            <ul>
+              <li>Faster and easier to prepare than digital activities</li>
+              <li>No dependence on spotty internet or device issues</li>
+              <li>Forces students to engage with each other, not their screens</li>
+            </ul>
+            <p><strong>Cons:</strong></p>
+            <ul>
+              <li>Handwriting identification can slow grading. Solution: create a quick Catcourses quiz where students enter a keyword for participation credit</li>
+              <li>Less sustainable than digital. Solution: only one print per group minimizes waste</li>
+            </ul>
+            <p>Sometimes the simplest solutions can create the richest learning experiences!</p>
+            <p>Have a great teaching week!<br>Sylvain</p>
+            <hr>
+            <p class="tip-note">Note: This week's tip was refined with the assistance of Claude Sonnet 4.5, an AI language model. Tuesday Teaching Tips are developed in partnership with UC Merced CETL.</p>
           </div></div>
         </article>
 
@@ -282,11 +361,22 @@
             <div class="tip-card__chevron" aria-label="Expand tip"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
           </div>
           <div class="tip-card__body"><div class="tip-card__body-inner">
-            <p>Before diving into course content, invest in introductions:</p>
-            <ul><li><strong>Introduce yourself:</strong> your love of teaching, your discipline, your hobbies, where you're from</li><li><strong>Know your students:</strong> survey them on why they're here, what they hope to learn, their dream job</li><li><strong>Help students meet each other:</strong> 5–10 minute icebreaker — bingo, two truths and a lie, blobs and lines…</li></ul>
-            <p>These small investments show students you're excited to work with them this semester.</p>
+            <p>Happy Tuesday and Happy New Year 2026!</p>
+            <p>The first week of class is here! Before diving into your course content, take time for introductions:</p>
+            <ul>
+              <li><strong>Introduce yourself:</strong> Let students see you as a person, not just an instructor: What do you love about teaching this course? Why did you choose to work in your discipline? Where are you from? What are your hobbies?...</li>
+              <li><strong>Get to know your students:</strong> Run a survey with questions about them: Why are they taking this course? What do they hope to learn? Where are they from? What is their dream job?...</li>
+              <li><strong>Help students meet each other:</strong> Run a 5-10 minute ice-breaker activity (e.g. bingo game, two truths and a lie, blobs and lines…) so students start connecting with peers and building the foundation for future collaborative work.</li>
+            </ul>
+            <p>These small investments of time in class create an engaging environment and show students you're excited to work with them this semester.</p>
+            <p><em>Note: Tuesday Teaching Tips will be sent biweekly this semester.</em></p>
+            <p>Enjoy meeting with your students and have a great teaching week!<br>Sylvain</p>
+            <hr>
+            <p class="tip-note">Note: This week's tip was refined with the assistance of Claude Sonnet 4.5, an AI language model. Tuesday Teaching Tips are developed in partnership with UC Merced CETL.</p>
           </div></div>
         </article>
+
+        <!-- ── FALL 2025 ────────────────────────────── -->
 
         <article class="tip-card" data-topics="assessment classroom">
           <div class="tip-card__header" role="button" tabindex="0" aria-expanded="false">
@@ -298,9 +388,17 @@
             <div class="tip-card__chevron" aria-label="Expand tip"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
           </div>
           <div class="tip-card__body"><div class="tip-card__body-inner">
-            <p>Finals week — the perfect time for a three-way reflection:</p>
-            <ul><li><strong>Students:</strong> extra-credit survey on what helped or limited their learning</li><li><strong>TA(s):</strong> discuss what worked, gather suggestions</li><li><strong>Yourself:</strong> evaluate which objectives were met, note successful activities</li></ul>
-            <p><strong>Key step:</strong> Pick ONE major change to implement next semester. Not five. One meaningful adjustment.</p>
+            <p>Happy Tuesday!</p>
+            <p>Finals week is here—a perfect time for a three-way reflection on your course:</p>
+            <ul>
+              <li><strong>From your students:</strong> Create a brief extra-credit survey asking what helped or limited their learning</li>
+              <li><strong>From your TA(s):</strong> Discuss what worked and what needs improvement, gather suggestions for course management and grading</li>
+              <li><strong>From yourself:</strong> Evaluate which learning objectives were met, note successful (and unsuccessful) activities, consider unexpected challenges and solutions</li>
+            </ul>
+            <p>Now the key step: Pick ONE major change to implement next semester. Not five. Not ten. One meaningful adjustment that will become your goal for spring.</p>
+            <p>I wish you good luck with the end of Fall semester and some joyful holidays!<br>Sylvain</p>
+            <hr>
+            <p class="tip-note">Note: This week's tip was refined with the assistance of Claude Sonnet 4.5, an AI language model. Tuesday Teaching Tips are developed in partnership with UC Merced CETL.</p>
           </div></div>
         </article>
 
@@ -314,8 +412,24 @@
             <div class="tip-card__chevron" aria-label="Expand tip"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
           </div>
           <div class="tip-card__body"><div class="tip-card__body-inner">
-            <p>Browser extensions now read Catcourses quizzes and suggest answers in real-time. Any online or take-home assignment is potentially vulnerable. Consider:</p>
-            <ul><li>Supervised pen-and-paper exams</li><li>Visual projects — infographics or posters requiring synthesis</li><li>Portfolio-based assessments demonstrating growth over time</li><li>Media projects — videos, podcasts, or presentations</li><li>Oral exams, individual or small-group</li><li>Assignments requiring personal experience, local data, or original analysis</li><li>If allowing AI: require students to document their process and critique AI outputs</li></ul>
+            <p>Happy Tuesday!</p>
+            <p>With finals week approaching, you might be preparing your final exam and consider how to address potential AI use.</p>
+            <p>Did you know that browser extensions now exist that can read Catcourses quizzes and suggest answers to students in real-time (examples: Wizard, Canvas Quiz Solver)? Any online, take-home, quiz-format, or essay-format assignment is vulnerable.</p>
+            <p>So what can we do? While there's no (and won't be) perfect solution, consider these alternatives that may reduce AI use:</p>
+            <ul>
+              <li>Return to supervised pen-and-paper exams</li>
+              <li>Offer a visual projects, infographics or posters, that require synthesis</li>
+              <li>Create portfolio-based assessments that demonstrate learning growth over time</li>
+              <li>Assign media projects such as videos, podcasts, or presentations, that showcase understanding</li>
+              <li>Conduct oral exams, either as individual or small-group</li>
+              <li>Design assignments that require personal experience, local data, or original analysis AI can't provide</li>
+              <li>Focus assessment on application and evaluation rather than recall</li>
+              <li>If you allow AI use, require students to document their process and critique AI outputs</li>
+            </ul>
+            <p>The goal isn't to police for cheaters but to assess our students' authentic learning as effectively as possible.</p>
+            <p>Have a great teaching week!<br>Sylvain</p>
+            <hr>
+            <p class="tip-note">Note: This week's tip was refined with the assistance of Claude Sonnet 4.5, an AI language model. Tuesday Teaching Tips are developed in partnership with UC Merced CETL.</p>
           </div></div>
         </article>
 
@@ -329,10 +443,27 @@
             <div class="tip-card__chevron" aria-label="Expand tip"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
           </div>
           <div class="tip-card__body"><div class="tip-card__body-inner">
+            <p>Happy Tuesday!</p>
+            <p>Three weeks until finals, and Thanksgiving is just around the corner. Now is a good time for a little gradebook housekeeping that will save you hours of stress later—and help your students finish strong.</p>
             <p><strong>For your gradebook:</strong></p>
-            <ul><li>Grade and release all completed assignments</li><li>Assign zeros to non-submitted work</li><li>Update assignment weights if delivery differed from the original plan</li><li>Finalize and schedule remaining assignments through finals week</li></ul>
+            <ul>
+              <li>Grade and release all completed assignments</li>
+              <li>Assign zeros to non-submitted work</li>
+              <li>Fix any detected issues in assignments</li>
+              <li>Update assignment weights if your teaching delivery differed from your original plan</li>
+              <li>Finalize and schedule remaining assignments through finals week</li>
+            </ul>
             <p><strong>For your students:</strong></p>
-            <ul><li>Send a clear end-of-semester checklist announcement</li><li>Remind them about the What-If Grade Calculator in Catcourses</li><li>Consider preparing an exit course survey</li></ul>
+            <ul>
+              <li>Send a clear end-of-semester checklist announcement to promote their success</li>
+              <li>Remind them about the What-If Grade Calculator in Catcourses: It helps them see how future work affects their grade.</li>
+              <li>Consider preparing an exit course survey to gather feedback while the semester is fresh in their minds</li>
+            </ul>
+            <p>Taking care of these tasks now will reduce your end-of-semester stress and workload and provide your students a clear picture of their standing and final tasks.</p>
+            <p><em>Note: Tuesday Teaching Tip will take a break next week. See you in December!</em></p>
+            <p>Have a great teaching week and a joyful Thanksgiving!<br>Sylvain</p>
+            <hr>
+            <p class="tip-note">Note: This week's tip was refined with the assistance of Claude Sonnet 4.5, an AI language model. Tuesday Teaching Tips are developed in partnership with UC Merced CETL.</p>
           </div></div>
         </article>
 
@@ -346,7 +477,45 @@
             <div class="tip-card__chevron" aria-label="Expand tip"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
           </div>
           <div class="tip-card__body"><div class="tip-card__body-inner">
-            <ul><li><strong>Guide students to create their own:</strong> concept maps, Cornell notes, flashcards — make it an in-class activity</li><li><strong>Point to existing resources:</strong> chapter objectives, end-of-lecture takeaway slides, weekly review quizzes</li><li><strong>Build review into class time:</strong> one-minute papers, group concept mapping, Mentimeter/Wooclap sessions</li><li><strong>AI study tools:</strong> Google NotebookLM can generate mock tests, study guides, FAQs, and audio reviews from course materials</li></ul>
+            <p>Happy Wednesday!</p>
+            <p>Last week we discussed the study guide debate. Let's now review some practical strategies that help students learn without creating guides for them:</p>
+            <ol>
+              <li><strong>Guide students to create their own:</strong>
+                <ul>
+                  <li>Encourage personalized note-taking methods (concept maps, Cornell notes, flashcards) that match their learning style</li>
+                  <li>Make it an in-class activity: have students create study materials collaboratively</li>
+                </ul>
+              </li>
+              <li><strong>Point to existing resources:</strong>
+                <ul>
+                  <li>Chapter learning objectives you've already identified</li>
+                  <li>End-of-lecture takeaway slides</li>
+                  <li>Weekly review quizzes or practice problems</li>
+                </ul>
+              </li>
+              <li><strong>Build review into class time:</strong>
+                <ul>
+                  <li>One-minute papers summarizing key concepts</li>
+                  <li>Group concept mapping exercises</li>
+                  <li>Interactive Mentimeter or Wooclap review sessions</li>
+                </ul>
+              </li>
+              <li><strong>Provide practice opportunities:</strong>
+                <ul>
+                  <li>Share a past exam (even if slightly modified) so students understand your question format and expectations</li>
+                </ul>
+              </li>
+              <li><strong>Introduce AI study tools:</strong>
+                <ul>
+                  <li>Google NotebookLM (free) can generate mock tests, study guides, FAQs, and audio or even video reviews from uploaded course materials</li>
+                  <li>Teach your students to use AI responsibly for their learning</li>
+                </ul>
+              </li>
+            </ol>
+            <p>The goal isn't creating more work for yourself but pointing students toward existing resources they can use responsibly.</p>
+            <p>Have a great teaching week!<br>Sylvain</p>
+            <hr>
+            <p class="tip-note">Note: This week's tip was refined with the assistance of Claude Sonnet 4.5, an AI language model. Tuesday Teaching Tips are developed in partnership with UC Merced CETL.</p>
           </div></div>
         </article>
 
@@ -360,9 +529,17 @@
             <div class="tip-card__chevron" aria-label="Expand tip"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
           </div>
           <div class="tip-card__body"><div class="tip-card__body-inner">
-            <p>Every semester, students ask for study guides — a habit rooted in secondary education. The dilemma: should we give in?</p>
-            <p>Some say no: students need to develop their own study skills, and spoon-feeding creates passive learners. Others argue yes: dense college material can overwhelm even bright students, and structure helps while they're still developing skills.</p>
-            <p>What if there's a middle ground? See tip F25-12 for alternatives that actually work.</p>
+            <p>Happy Wednesday!</p>
+            <p>You know the scene: Every semester, students ask, even demand, for study guides. A habit deeply rooted in secondary education.</p>
+            <p>But here's the dilemma we face as college instructors: Should we give in?</p>
+            <p>Some say no: Students need to develop their own study skills, and spoon-feeding creates passive learners. Besides, what works for one student's learning style may not work for another.</p>
+            <p>Others argue yes: Dense college material can overwhelm even bright students. A little structure helps them navigate content-heavy courses while they're still developing their study skills.</p>
+            <p>But what is there is a middle ground? A way to guide without spoon-feeding, to support without enabling? What if you already have the resources students need?</p>
+            <p>Find out next week as we will list alternatives that actually work!</p>
+            <p>To be continued…</p>
+            <p>Have a great teaching week!<br>Sylvain</p>
+            <hr>
+            <p class="tip-note">Note: This week's tip was refined with the assistance of Claude Sonnet 4.5, an AI language model. Tuesday Teaching Tips are developed in partnership with UC Merced CETL.</p>
           </div></div>
         </article>
 
@@ -376,8 +553,24 @@
             <div class="tip-card__chevron" aria-label="Expand tip"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
           </div>
           <div class="tip-card__body"><div class="tip-card__body-inner">
-            <ul><li><strong>Acknowledge it:</strong> naming this period can be validating for students</li><li><strong>Use media:</strong> play music as students enter or show a relevant clip</li><li><strong>Flip your format:</strong> start with discussion, or try a "no-lecture day"</li><li><strong>Connect to current events:</strong> news articles, podcasts, or videos linking concepts to the real world</li><li><strong>Invite a guest:</strong> a colleague, alum, or grad student brings fresh perspective</li><li><strong>Revisit your syllabus:</strong> consider adjustments based on current progress</li></ul>
-            <p>Your energy impacts your students. A 10-minute walk before class can make all the difference.</p>
+            <p>Happy Tuesday!</p>
+            <p>Feeling the energy drain? You're not alone, even this tip is running late!</p>
+            <p>The mid-semester slump hits almost every instructor and student: class attendance and engagement decreasing, grading piling up, and faces showing signs of fatigue.</p>
+            <p>The good news? Small shifts can revitalize your classroom:</p>
+            <ul>
+              <li><strong>Acknowledge it:</strong> Tell students you recognize this challenging period. Just naming it can be validating.</li>
+              <li><strong>Use media:</strong> Play music as students enter or show a relevant film clip or documentary. It re-energizes with minimal effort.</li>
+              <li><strong>Flip your class format:</strong> Start with discussion instead of lecture, or try a "no-lecture day" where students drive the conversation.</li>
+              <li><strong>Connect to current events:</strong> Use news articles, podcasts, or videos that relate course concepts to what's happening now.</li>
+              <li><strong>Invite a guest:</strong> Bring in a colleague, alum, or graduate student for fresh perspective.</li>
+              <li><strong>Try mini-activities:</strong> Quick think-pair-shares, one-minute papers, or Kahoot quizzes break up passive listening.</li>
+              <li><strong>Revisit your syllabus:</strong> Review your course learning objectives and consider adjustments based on the current course progress, teaching delivery, and student learning.</li>
+            </ul>
+            <p>Don't forget yourself: Your energy directly impacts your students. A 10-minute walk, quick chat with a colleague, or brief meditation before class can make all the difference.</p>
+            <p>Have a great teaching week!<br>Sylvain</p>
+            <p><em>Sources: 1, 2</em></p>
+            <hr>
+            <p class="tip-note">Note: This week's tip was refined with the assistance of Claude Sonnet 4.5, an AI language model. Tuesday Teaching Tips are developed in partnership with UC Merced CETL.</p>
           </div></div>
         </article>
 
@@ -391,9 +584,17 @@
             <div class="tip-card__chevron" aria-label="Expand tip"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
           </div>
           <div class="tip-card__body"><div class="tip-card__body-inner">
-            <p>After submitting mid-semester grades, flip the script and get feedback on your course. Just 5–15 minutes can offer invaluable insights:</p>
-            <ul><li><strong>Quick online survey:</strong> Catcourses Quizzes, Qualtrics, Mentimeter, or Wooclap</li><li><strong>Interactive discussion:</strong> 15-minute think-pair-share on what's working and what could improve</li><li><strong>SATAL support:</strong> request a formal mid-semester evaluation through the Students Assessing Teaching and Learning program</li></ul>
-            <p>Use feedback for small, actionable adjustments. This shows students you value their role in the classroom.</p>
+            <p>Happy Tuesday!</p>
+            <p>With mid-semester grade submission today at 12 PM, you've just given students feedback on their progress. Now is the perfect time to flip the script and get their feedback on the course! Just 5-15 minutes can offer invaluable insights. Here's how:</p>
+            <ul>
+              <li><strong>Quick online survey:</strong> Create a brief survey using Catcourses Quizzes, Qualtrics, Mentimeter, or Wooclap. Students complete it in or outside of class. Consider offering participation points as incentive.</li>
+              <li><strong>Interactive discussion:</strong> Dedicate 15 minutes for think-pair-share. Students form pairs, then groups of four, to discuss what's working and what could improve. This generates diverse feedback and productive class conversation.</li>
+              <li><strong>SATAL support:</strong> Request a formal mid-semester evaluation through the Students Assessing Teaching and Learning (SATAL) program to gauge what helps student learning and what they need to succeed.</li>
+            </ul>
+            <p>This small-time investment shows students you value their role in the classroom. Use the feedback for small, actionable adjustments but not massive changes. It's a proactive step toward a more engaging learning environment.</p>
+            <p>Have a great teaching week!<br>Sylvain</p>
+            <hr>
+            <p class="tip-note">Note: This week's tip was refined with the assistance of Claude Sonnet 4.5, an AI language model. Tuesday Teaching Tips are developed in partnership with UC Merced CETL.</p>
           </div></div>
         </article>
 
@@ -407,8 +608,20 @@
             <div class="tip-card__chevron" aria-label="Expand tip"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
           </div>
           <div class="tip-card__body"><div class="tip-card__body-inner">
-            <p>When a student's answer misses the mark, your response can shut down participation — or create a powerful learning moment:</p>
-            <ul><li><strong>Dig deeper:</strong> "Walk me through your thinking on that."</li><li><strong>Build on it:</strong> "You're on the right track! Can someone add to that?"</li><li><strong>Guide gently:</strong> "I like where you're going. Now consider this…"</li><li><strong>Find the connection:</strong> link their response to a related concept, then circle back</li><li><strong>Acknowledge the effort:</strong> recognize their willingness to try while explaining why the answer isn't quite right</li></ul>
+            <p>Happy Tuesday!</p>
+            <p>You ask a question in class, a hand shoots up, but the answer misses the mark. We've all been there! How you respond in that moment can either shut down student participation or create a powerful learning opportunity.</p>
+            <p>Consider these approaches:</p>
+            <ul>
+              <li><strong>Dig deeper</strong> - "Walk me through your thinking on that." Understanding their logic helps you address misconceptions and invites others to join the discussion.</li>
+              <li><strong>Build on it</strong> – Use positive reinforcement: "You're on the right track! Can someone add to that?". This keeps the student engaged while opening the floor.</li>
+              <li><strong>Guide gently</strong> - "I like where you're going. Now consider this..." Offers hints without making students feel wrong.</li>
+              <li><strong>Find the connection</strong> - Link something from their response to a related concept, then circle back to the original question.</li>
+              <li><strong>Acknowledge the effort</strong> - Explain why the answer isn't quite right while recognizing their willingness to participate. Learning is as much about the attempts and mistakes as it is about getting it right.</li>
+            </ul>
+            <p>The goal? Create an inclusive, respectful classroom community that fuels student engagement and learning.</p>
+            <p>Have a great teaching week!<br>Sylvain</p>
+            <hr>
+            <p class="tip-note">Note: This week's tip was refined with the assistance of Claude Sonnet 4.5, an AI language model. Tuesday Teaching Tips are developed in partnership with UC Merced CETL.</p>
           </div></div>
         </article>
 
@@ -422,10 +635,19 @@
             <div class="tip-card__chevron" aria-label="Expand tip"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
           </div>
           <div class="tip-card__body"><div class="tip-card__body-inner">
-            <p>Accidentally deleted an assignment on Catcourses? There's a simple recovery trick:</p>
-            <ul><li>Navigate to your course on Catcourses</li><li>In the address bar, add <code>/undelete</code> right after your course number</li></ul>
-            <p>Example: <code>catcourses.ucmerced.edu/courses/YOUR-COURSE-NUMBER/undelete</code></p>
-            <p>Bookmark this for future emergencies!</p>
+            <p>Happy Tuesday!</p>
+            <p>Accidentally deleted an assignment on Catcourses? Don't panic—there's a simple recovery trick!</p>
+            <p>If you've saved your assignment, page, quiz, or file before deletion, here's how to restore it:</p>
+            <ol>
+              <li>Navigate to your course on Catcourses</li>
+              <li>In the address bar, add <code>/undelete</code> right after your course number</li>
+            </ol>
+            <p>Example: <code>https://catcourses.ucmerced.edu/courses/**YOUR-COURSE-NUMBER**/undelete</code></p>
+            <p>Need a visual guide? Watch this tutorial: Recover Deleted Content</p>
+            <p>This hidden feature can save you from recreating work. Bookmark this tip for future emergencies!</p>
+            <p>Have a great teaching week!<br>Sylvain</p>
+            <hr>
+            <p class="tip-note">Note: This week's tip was refined with the assistance of Claude Sonnet 4, an AI language model. Tuesday Teaching Tips are developed in partnership with UC Merced CETL.</p>
           </div></div>
         </article>
 
@@ -439,9 +661,21 @@
             <div class="tip-card__chevron" aria-label="Expand tip"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
           </div>
           <div class="tip-card__body"><div class="tip-card__body-inner">
-            <p>Opening rituals reduce anxiety, build positive energy, and signal that learning can be both rigorous and enjoyable:</p>
-            <ul><li><strong>Share a fun fact:</strong> a surprising tidbit related to today's topic</li><li><strong>Learn about your students:</strong> "Starbucks or Dutch Bros?" — low effort, high connection</li><li><strong>What's happening here?:</strong> project an intriguing image and ask students to describe what they see</li><li><strong>Mindful breathing:</strong> 4-7-8 breath — inhale 4 counts, hold 7, exhale 8</li><li><strong>Music:</strong> play something as students settle in</li></ul>
-            <p>Consistency matters more than complexity. Find what feels authentic to you and stick with it.</p>
+            <p>Happy Tuesday!</p>
+            <p>Last week's tip introduced starting class with a dad joke. Beyond jokes, you can use humor, mindfulness, and quick activities to help students transition into learning mode.</p>
+            <p>Here are more options:</p>
+            <ul>
+              <li><strong>Share a fun fact:</strong> Offer a surprising tidbit related to today's topic (bonus points if it's weird or funny enough to grab attention)</li>
+              <li><strong>Learn about your students:</strong> Use tools like Mentimeter or Wooclap, or simply ask: "Starbucks or Dutch Bros?" or "What show are you binge-watching?" Low effort but high connection</li>
+              <li><strong>What's happening here?:</strong> Project an intriguing image and ask students to describe what they see before making assumptions (New York Times offers excellent resources)</li>
+              <li><strong>Practice mindful breathing:</strong> Lead a simple 4-7-8 breath: inhale for 4 counts, hold for 7, exhale for 8. This activates the relaxation response and helps students focus</li>
+              <li><strong>Display a relevant meme:</strong> Share a meme or GIF or a brief video related to course material for a moment of shared humor and cultural connection</li>
+              <li><strong>Queue up some music:</strong> Play a favorite song as students settle in, choose something related to the lesson, or take requests from students</li>
+            </ul>
+            <p>These opening rituals reduce anxiety, build positive classroom energy, and signal that learning can be both rigorous and enjoyable. Find what feels authentic to you and stick with it; consistency matters more than complexity.</p>
+            <p>Have a great teaching week!<br>Sylvain</p>
+            <hr>
+            <p class="tip-note">Note: This week's tip was refined with the assistance of Claude Sonnet 4, an AI language model. Tuesday Teaching Tips are developed in partnership with UC Merced CETL.</p>
           </div></div>
         </article>
 
@@ -455,10 +689,22 @@
             <div class="tip-card__chevron" aria-label="Expand tip"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
           </div>
           <div class="tip-card__body"><div class="tip-card__body-inner">
-            <p><em>Q: Who's the king of the classroom? A: The ruler.</em></p>
-            <p>I've been starting most classes with a dad joke for years. Students still request them and mention this ritual positively in course evaluations. What I've observed:</p>
-            <ul><li>The classroom atmosphere becomes more relaxed and welcoming</li><li>Transitioning from social time to academic content feels smoother</li><li>Students engage more quickly with the instructor</li><li>Students approach me more readily during and after class</li></ul>
-            <p>The specific activity matters less than the intention to create a welcoming space.</p>
+            <p>Happy Tuesday!</p>
+            <p>Question: Who's the king of the classroom?<br>Answer: The ruler.</p>
+            <p>Though it may feel awkward, I've been starting most classes with a dad joke for years. Students still request them and consistently mention this ritual positively in course evaluations. The joke quality is surely questionable, but that is not the point.</p>
+            <p>What I've observed from this practice:</p>
+            <ul>
+              <li>The classroom atmosphere becomes more relaxed and welcoming</li>
+              <li>Transitioning from social time to academic content feels smoother</li>
+              <li>Students engage more quickly with the instructor</li>
+              <li>Students approach me more readily during and after class</li>
+            </ul>
+            <p>These observations align with other similar experience on <a href="https://www.linkedin.com/pulse/its-joke-using-dad-jokes-create-culture-learning-play-josh-hirsch/" target="_blank" rel="noopener">classroom humor</a><sup>1</sup>, which found that brief moments of silliness help humanize instructors and create a joyful learning environment.</p>
+            <p>There are many ways to connect with students at the start of class. Maybe it's sharing an interesting fact, asking about current events, or yes, telling terrible jokes. The specific activity matters less than the intention to create a welcoming space. More opening class activities will be described in next week's post.</p>
+            <p>Have a great teaching week!<br>Sylvain</p>
+            <p><em>Source: <sup>1</sup> <a href="https://www.linkedin.com/pulse/its-joke-using-dad-jokes-create-culture-learning-play-josh-hirsch/" target="_blank" rel="noopener">It's Not a Joke: Using Dad Jokes to Create a Culture of Learning and Play</a></em></p>
+            <hr>
+            <p class="tip-note">Note: This week's tip was refined with the assistance of Claude Sonnet 4, an AI language model. Tuesday Teaching Tips are developed in partnership with UC Merced CETL.</p>
           </div></div>
         </article>
 
@@ -472,8 +718,20 @@
             <div class="tip-card__chevron" aria-label="Expand tip"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
           </div>
           <div class="tip-card__body"><div class="tip-card__body-inner">
-            <p>Short breaks every 10–15 minutes boost student retention and give you a moment to recharge. Try any of these (2 mins each):</p>
-            <ul><li><strong>Review and Clarify:</strong> students review notes and jot down questions</li><li><strong>Quick Quiz:</strong> Kahoot, Mentimeter, Wooclap, or clickers</li><li><strong>Discussion:</strong> relate concepts to real-world examples or predict next lecture steps</li><li><strong>Pair Share:</strong> partners explain key points, then share with the class</li><li><strong>One-Minute Paper:</strong> write the most important point or lingering question</li></ul>
+            <p>Happy Tuesday!</p>
+            <p>Feeling drained after a 50+ minute class of nonstop lecturing? You and your students would both benefit from regular breaks every 10-15 minutes. Short breaks boost student retention and concentration while giving you a moment to recharge.</p>
+            <p>Suggestion: Try any of the following break ideas (2 mins each):</p>
+            <ul>
+              <li><strong>Review and Clarify:</strong> Students review notes and jot down questions</li>
+              <li><strong>Quick Quiz:</strong> Use Kahoot, Mentimeter, Wooclap, or clickers for a brief review</li>
+              <li><strong>Discussion:</strong> Ask students to relate concepts to real-world examples or predict next lecture steps</li>
+              <li><strong>Pair Share:</strong> Partners explain key points, then share with the class</li>
+              <li><strong>One-Minute Paper:</strong> Write the most important point or lingering question</li>
+            </ul>
+            <p>You don't need elaborate activities. The goal is simple: briefly re-engage students' minds and rest yours! These micro-breaks can revitalize the energy in your classroom.</p>
+            <p>Have a great teaching week!<br>Sylvain</p>
+            <hr>
+            <p class="tip-note">Note: This week's tip was refined with the assistance of Claude Sonnet 4, an AI language model. Tuesday Teaching Tips are developed in partnership with UC Merced CETL.</p>
           </div></div>
         </article>
 
@@ -487,8 +745,27 @@
             <div class="tip-card__chevron" aria-label="Expand tip"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
           </div>
           <div class="tip-card__body"><div class="tip-card__body-inner">
-            <p>A survey of 253 UC Merced students (ESS002 &amp; ESS050) revealed that <strong>78% use social media for daily news</strong>, with TikTok leading at 40%. Algorithms prioritize engagement over accuracy, limiting exposure to diverse perspectives.</p>
-            <ul><li>Discuss source evaluation briefly in class</li><li>Lead a cross-referencing activity comparing different sources on the same topic</li><li>It's not about judging students' choices but building critical thinking skills</li></ul>
+            <p>Happy Tuesday!</p>
+            <p>Quick question: What is your main daily source of information? Select only one:</p>
+            <ol>
+              <li>Newspapers (print or online)</li>
+              <li>Blogs (independent or company-owned)</li>
+              <li>TikTok</li>
+              <li>Youtube</li>
+              <li>Other social media (e.g., X, Instagram, Facebook)</li>
+              <li>TV News</li>
+              <li>News apps/websites (e.g., Apple News, BBC News)</li>
+              <li>Podcasts</li>
+              <li>Other</li>
+            </ol>
+            <p>Now guess: does your answer align with your students'?</p>
+            <p>Probably not. A recent survey of 253 UC Merced students, from ESS002 and ESS050, reveals that 78% use social media for daily news, with TikTok leading at 40%.</p>
+            <p>This may challenge our learning environment. Social media algorithms prioritize engagement over accuracy, potentially limiting exposure to diverse perspectives.</p>
+            <p>Consider: Briefly discuss source evaluation in class, lead a cross-referencing activity, or show how different sources frame the same topic. It's not about judging students' choices but building critical thinking skills valuable in any discipline.</p>
+            <p>I hope to continue this discussion with colleagues on campus.</p>
+            <p>Have a great teaching week!<br>Sylvain</p>
+            <hr>
+            <p class="tip-note">Note: This week's tip was refined with the assistance of Claude Sonnet 4, an AI language model. Tuesday Teaching Tips are developed in partnership with UC Merced CETL.</p>
           </div></div>
         </article>
 
@@ -502,9 +779,19 @@
             <div class="tip-card__chevron" aria-label="Expand tip"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
           </div>
           <div class="tip-card__body"><div class="tip-card__body-inner">
-            <p>Office hour attendance has declined significantly since COVID — research shows no recovery upon returning to in-person teaching. We need to actively promote them. Remind students that:</p>
-            <ul><li>Office hours aren't just for struggling students — they're valuable for everyone</li><li>They improve understanding and grades through personalized clarification</li><li>They build connections for future recommendations and research opportunities</li></ul>
-            <p>Mention office hours during lectures, send periodic reminders, and emphasize that asking questions shows engagement, not weakness.</p>
+            <p>Happy Tuesday!</p>
+            <p>Office hour attendance has declined significantly since the COVID pandemic. Research<sup>1</sup> with first-year medical students shows attendance has significantly dropped since COVID—with no recovery upon returning to in-person teaching.</p>
+            <p>We need to actively promote office hours beyond just listing them in our syllabus. Consider regularly reminding students that:</p>
+            <ul>
+              <li>Office hours aren't just for struggling students—they're valuable for everyone</li>
+              <li>They improve understanding and grades through personalized clarification</li>
+              <li>They build connections for future recommendations and research opportunities</li>
+              <li>They strengthen belonging in the academic community</li>
+            </ul>
+            <p>Simple strategies: Mention office hours during lectures, send periodic reminders, and emphasize that asking questions shows engagement, not weakness. The research<sup>1</sup> suggests that without active promotion, students won't naturally return to pre-pandemic engagement levels.</p>
+            <p>Have a great teaching week!<br>Sylvain</p>
+            <hr>
+            <p class="tip-note">Note: This week's tip was refined with the assistance of Claude Sonnet 4, an AI language model. Tuesday Teaching Tips are developed in partnership with UC Merced CETL.</p>
           </div></div>
         </article>
 
@@ -518,11 +805,23 @@
             <div class="tip-card__chevron" aria-label="Expand tip"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
           </div>
           <div class="tip-card__body"><div class="tip-card__body-inner">
-            <p>Over 70% of high school students have used AI tools, and our incoming students are AI users transitioning from "high school AI work" to "university critical thinking."</p>
-            <p><strong>Recommendation:</strong> Include an AI policy in your syllabus and discuss it on the first day. Resources:</p>
-            <ul><li><a href="https://docs.google.com/document/d/1RMVwzjc1o0Mi8Blw_-JUTcXv02b2WRH86vw7mi16W3U/edit" target="_blank" rel="noopener">Syllabi Policies for AI Generative Tools</a> (~176 policies by Lance Eaton)</li><li>ESS002 Syllabus Extract: Academic Integrity and AI (available on request)</li></ul>
+            <p>Happy Tuesday!</p>
+            <p>Tuesday Teaching Tip is back!</p>
+            <p>Over 70% of high school students have used AI tools, and my recent session with 200+ freshmen confirmed it: our incoming students are AI users!</p>
+            <p>The challenge? They're transitioning from "high school AI work" to "university critical thinking" and need clearer guidance on appropriate AI use.</p>
+            <p>Quick recommendation: Include an AI policy in your syllabus and discuss expectations during your first class. Resources to help:</p>
+            <ul>
+              <li><a href="https://docs.google.com/document/d/1RMVwzjc1o0Mi8Blw_-JUTcXv02b2WRH86vw7mi16W3U/edit" target="_blank" rel="noopener">Syllabi Policies for AI Generative Tools</a></li>
+              <li>ESS002 Syllabus Extract: Academic Integrity and AI</li>
+            </ul>
+            <p>Clear AI guidelines from day one help students learn appropriate boundaries while preparing them for a professional world where these tools are everywhere!</p>
+            <p>Have a great teaching start!<br>Sylvain</p>
+            <hr>
+            <p class="tip-note">Note: This week's tip was refined with the assistance of Claude Sonnet 4, an AI language model. Tuesday Teaching Tips are developed in partnership with UC Merced CETL.</p>
           </div></div>
         </article>
+
+        <!-- ── SPRING 2025 (numbered) ──────────────── -->
 
         <article class="tip-card" data-topics="ai">
           <div class="tip-card__header" role="button" tabindex="0" aria-expanded="false">
@@ -534,8 +833,22 @@
             <div class="tip-card__chevron" aria-label="Expand tip"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
           </div>
           <div class="tip-card__body"><div class="tip-card__body-inner">
-            <p>ChatGPT Plus is now free through May; Gemini Advanced free through finals 2026. These "gifts" are strategic investments in future customers. We must become AI-aware instructors.</p>
-            <ul><li><strong>Know what you're up against:</strong> spend 30 minutes weekly exploring AI tools to understand what students are using</li><li><strong>Focus on process, not product:</strong> design assignments that value the learning journey</li><li><strong>Trust your instincts:</strong> watch for sudden style shifts or references to concepts not covered in class</li><li><strong>Be explicit:</strong> create clear AI policies</li></ul>
+            <p>Happy Tuesday!</p>
+            <p>Have you noticed the "seduction approach" of some major AI tool companies toward our college students? ChatGPT Plus is now free through May, while Google offers Gemini Advanced (with 2TB storage!) free through finals 2026. These "gifts" aren't coincidental—they're strategic investments in future customers and users.</p>
+            <p>We must become AI-aware instructors in a world where our students have unprecedented access to these tools. Whether you see AI as an opportunity or a threat, our job is to help our students navigate these waters with integrity and purpose.</p>
+            <p>"Learning about AI doesn't mean embracing or even supporting it as a pedagogical tool. It means understanding its capabilities, limitations, and where it might affect what's happening in your classroom."<sup>1</sup></p>
+            <p>Consider these approaches as you plan for next semester:</p>
+            <ul>
+              <li><strong>Know what you're up against:</strong> Spend 30 minutes weekly exploring AI tools not to embrace them, but to understand what your students are using</li>
+              <li><strong>Focus on process, not just product:</strong> Design assignments that value the journey of learning, not just the final output</li>
+              <li><strong>Trust your instincts:</strong> Be alert to sudden style shifts or references to concepts not covered in class</li>
+              <li><strong>Be explicit about expectations:</strong> Create clear AI policies using assessment scales (remember Tip #1?)</li>
+            </ul>
+            <p>This is the final Tuesday Teaching Tip of the semester. If you'd like to continue receiving instructional tips in the future, please register for Tuesday Teaching Tips.</p>
+            <p>Have a wonderful summer!<br>Sylvain</p>
+            <p><em>Sources: <sup>1</sup> What I Want Teachers to Know about AI &nbsp;|&nbsp; <sup>2</sup> Your Students Need an AI-Aware Professor</em></p>
+            <hr>
+            <p class="tip-note">Note: This week's tip was refined with the assistance of Claude 3.7 Sonnet, an AI language model. The Tuesday Teaching Tips are developed in collaboration with UC Merced CETL, as part of the 2024-2025 CETL Faculty Fellows program.</p>
           </div></div>
         </article>
 
@@ -549,9 +862,23 @@
             <div class="tip-card__chevron" aria-label="Expand tip"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
           </div>
           <div class="tip-card__body"><div class="tip-card__body-inner">
-            <p>AI isn't coming to education — it's already here. How to respond:</p>
-            <ul><li>Return to supervised assessments when possible</li><li>Design "AI-proof" assignments requiring personal experience or local data</li><li>Teach responsible AI use rather than ignoring its existence</li><li>Adjust what we value in student work (process over product)</li></ul>
-            <p>Recommended reading: <em>Teaching with AI: A Practical Guide to a New Era of Human Learning</em> by José Bowen &amp; Edward Watson (2024).</p>
+            <p>Happy Tuesday!</p>
+            <p>Last Friday, I spotted one of my students in the SRE lobby not-so-subtly copy/pasting my quiz questions into ChatGPT... 😅</p>
+            <p>This moment crystalized a reality we're all facing: AI isn't coming to education—it's already here! Whether we're enthusiasts or skeptics, these tools have become part of our academic ecosystem, just as calculators, computers and smartphones did before them.</p>
+            <p>A provocative article titled "The AI Tidal Wave" suggests we're approaching a critical turning point where traditional assessments may soon become ineffective.</p>
+            <p>So how do we respond? Consider these approaches:</p>
+            <ol>
+              <li>Return to supervised assessments when possible</li>
+              <li>Design "AI-proof" assignments requiring personal experience or local data</li>
+              <li>Teach responsible AI use rather than ignoring its existence</li>
+              <li>Implement AI disclosure policies in your assignments</li>
+              <li>Adjust what we value in student work (process over product)</li>
+            </ol>
+            <p>I'm not suggesting uncritical AI enthusiasm but rather approaching this shift with the same critical thinking we teach our students. After all, our graduates will use these tools professionally—shouldn't we prepare them?</p>
+            <p>For those interested in exploring this topic more deeply, I highly recommend <em>Teaching with AI: A Practical Guide to a New Era of Human Learning</em> by José Bowen and Edward Watson (2024). It offers excellent frameworks for incorporating AI literacy into your courses while maintaining academic integrity.</p>
+            <p>Have a great teaching week!<br>Sylvain</p>
+            <hr>
+            <p class="tip-note">Note: This week's tip was refined with the assistance of Claude 3.7 Sonnet, an AI language model. The Tuesday Teaching Tips are developed in collaboration with UC Merced CETL, as part of the 2024-2025 CETL Faculty Fellows program.</p>
           </div></div>
         </article>
 
@@ -565,7 +892,18 @@
             <div class="tip-card__chevron" aria-label="Expand tip"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
           </div>
           <div class="tip-card__body"><div class="tip-card__body-inner">
-            <ul><li><strong>Quiz creation:</strong> AI generates questions from a transcript. Try: <em>"Create two versions of a 10-question quiz — 6 multiple-choice (5 options each) and 4 true-false — based on this transcript. Include the correct answer after each question."</em></li><li><strong>Quiz formatting:</strong> AI converts your existing quiz into Canvas-ready import format. Try: <em>"Convert this quiz into Canvas quiz format following the uploaded template."</em></li></ul>
+            <p>Happy Tuesday!</p>
+            <p>Is quiz creation eating up your precious café time? ☕ Fear not, your AI assistant is ready to rescue those hours!</p>
+            <p>Creating quizzes on Catcourses can be quite laborious and time-consuming. The good news? Your generative AI tool (Claude, Gemini, ChatGPT…) can assist you and help you speed up this creation in different ways:</p>
+            <ul>
+              <li><strong>Creation of a quiz:</strong> AI can generate questions from a video/audio transcript or reading you provide (perfect for Bloom's taxonomy low-level assessment). Try this prompt: <em>"Create two versions of a 10-question quiz, including 6 multiple-choice questions with 5 options each and 4 true-false questions, all based on this transcript about [your topic]. Include the correct answer after each question."</em></li>
+              <li><strong>Quiz formatting:</strong> AI can convert your existing quiz (from text or PDF) into Canvas-ready quiz format that's simple to import. Example: <em>"Convert this quiz into Canvas quiz format following the one from the uploaded template."</em></li>
+            </ul>
+            <p>These AI shortcuts become particularly valuable when creating extensive, numerous, or frequent quizzes—letting you focus on what really matters: teaching and that second cup of coffee!</p>
+            <p>If you'd like to know more about enhancing quiz creation with AI, feel free to contact me for a detailed guide explaining each step of the process.</p>
+            <p>Have a great teaching week!<br>Sylvain</p>
+            <hr>
+            <p class="tip-note">Note: This week's tip was refined with the assistance of Claude 3.7 Sonnet, an AI language model. The Tuesday Teaching Tips are developed in collaboration with UC Merced CETL, as part of the 2024-2025 CETL Faculty Fellows program.</p>
           </div></div>
         </article>
 
@@ -579,9 +917,58 @@
             <div class="tip-card__chevron" aria-label="Expand tip"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
           </div>
           <div class="tip-card__body"><div class="tip-card__body-inner">
-            <p>Browser extensions can now read Catcourses quizzes and suggest answers in real-time. Consider these alternatives:</p>
-            <ul><li>Return to pen-and-paper exams</li><li>Redesign as infographics</li><li>Create portfolio-based assessments</li><li>Assign media projects</li><li>Conduct oral presentations/exams</li></ul>
-            <p>If we accept AI's presence, we can transform the challenge by targeting higher-order thinking (analyze, evaluate, create) rather than lower-level recall.</p>
+            <p>Happy Tuesday!</p>
+            <p>Many colleagues responded to Tip #8 ("In AI detectors, trust you won't") asking for more details on building AI-proof assignments.</p>
+            <p>It is crucial to design assignments with potential AI use in mind. Any online, take-home, quiz-format, or essay-format assignment might now be at risk for AI usage.</p>
+            <p><strong>Did you know?</strong> Browser extensions can now read Catcourses quizzes and suggest answers to students (e.g., Wizard, Canvas Quiz Solver)!</p>
+            <p>While there's no perfect solution, consider these alternatives:</p>
+            <ul>
+              <li>Return to "pen and paper" exams</li>
+              <li>Redesign assignments as infographics</li>
+              <li>Create portfolio-based assessments</li>
+              <li>Assign media projects</li>
+              <li>Conduct oral presentations/exams</li>
+            </ul>
+            <p>If we accept AI's presence in academia, we might transform this challenge into an opportunity. We can enhance student education by upgrading our learning objectives: Targeting higher-order thinking skills (analyze, evaluate, create) rather than lower-level ones (remember, understand, apply).</p>
+            <p>Have a great teaching week!<br>Sylvain</p>
+            <hr>
+            <p class="tip-note">Note: This week's tip was refined with the assistance of Claude 3.7 Sonnet, an AI language model. The Tuesday Teaching Tips are developed in collaboration with UC Merced CETL, as part of the 2024-2025 CETL Faculty Fellows program.</p>
+          </div></div>
+        </article>
+
+        <article class="tip-card" data-topics="ai">
+          <div class="tip-card__header" role="button" tabindex="0" aria-expanded="false">
+            <div class="tip-card__meta">
+              <div class="tip-card__top"><span class="tip-card__code">#09 · Spring '25</span></div>
+              <h3 class="tip-card__title">Join Us for "Demystifying AI in Academia" Symposium</h3>
+              <div class="tip-card__tags"><span class="tag tag--ai">AI &amp; Tools</span></div>
+            </div>
+            <div class="tip-card__chevron" aria-label="Expand tip"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </div>
+          <div class="tip-card__body"><div class="tip-card__body-inner">
+            <p>Happy Tuesday!</p>
+            <p>Have you been following our AI-themed Tuesday Teaching Tips this semester and wondering, "But how do I actually implement these ideas in my courses?" 🤔</p>
+            <p>Wonder no more! This Friday presents the perfect opportunity to see AI in action across our campus. Join us for the <strong>"Demystifying AI in Academia" symposium</strong>:</p>
+            <ul>
+              <li><strong>Friday, March 14th, 2025</strong></li>
+              <li><strong>10:00 AM to 12:30 PM</strong></li>
+              <li><strong>Teaching Commons Learning Lab (KL 316)</strong></li>
+            </ul>
+            <p>This event, part of UC Merced's Research Week and sponsored by CETL, will showcase practical AI applications through presentations from your colleagues on:</p>
+            <ul>
+              <li>Research workflows</li>
+              <li>Virtual teaching assistance</li>
+              <li>Scientific writing tools</li>
+              <li>Eye-tracking and personalized learning</li>
+              <li>Multilingual communication</li>
+            </ul>
+            <p><strong>Bonus:</strong> Refreshments will be provided! Because learning about AI is better with coffee and snacks, non? 😄</p>
+            <p><strong>Location tip:</strong> Take the elevator near Bobcat Advising/Lantern Cafe to the 3rd floor.</p>
+            <p><strong>More information:</strong> View the complete <a href="symposium-2025.html">agenda</a>.</p>
+            <p>Please share this invitation with your graduate students who might benefit from these AI insights for their own teaching and research.</p>
+            <p>See you Friday!<br>Sylvain</p>
+            <hr>
+            <p class="tip-note">Note: This week's tip was refined with the assistance of Claude 3.7 Sonnet, an AI language model. The Tuesday Teaching Tips are developed in collaboration with UC Merced CETL, as part of the 2024-2025 CETL Faculty Fellows program.</p>
           </div></div>
         </article>
 
@@ -595,8 +982,24 @@
             <div class="tip-card__chevron" aria-label="Expand tip"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
           </div>
           <div class="tip-card__body"><div class="tip-card__body-inner">
-            <p>AI detection software has serious limitations: frequent false positives (especially for non-native speakers), easily fooled by "humanizer" tools, and questionable accuracy. Instead:</p>
-            <ul><li><strong>Design purposeful assignments:</strong> connect tasks clearly to learning outcomes</li><li><strong>Focus on process:</strong> break assignments into stages that make student thinking visible</li><li><strong>Trust your instincts:</strong> watch for sudden style shifts or generic content</li></ul>
+            <p>Happy Tuesday!</p>
+            <p>Have you considered using AI detection software to catch students who may have used ChatGPT or a similar resource? You might want to think twice before embracing these tools, and consider these important limitations:</p>
+            <ul>
+              <li>They produce frequent false positives (especially for non-native speakers and struggling writers)</li>
+              <li>They're easily fooled by "humanizer" tools that disguise AI text</li>
+              <li>Their accuracy is questionable at best</li>
+            </ul>
+            <p>Instead of detection, try these more effective approaches:</p>
+            <ol>
+              <li><strong>Design purposeful assignments:</strong> Connect tasks clearly to learning outcomes and explain why the work matters</li>
+              <li><strong>Focus on process:</strong> Break assignments into stages that make student thinking visible</li>
+              <li><strong>Trust your instincts:</strong> Watch for sudden style shifts, generic content, or references to concepts not covered in class</li>
+            </ol>
+            <p>The goal isn't catching cheaters but fostering environments where students want to build their authentic learning.</p>
+            <p>Have a great teaching week!<br>Sylvain</p>
+            <p><em>Sources: 1, 2, 3</em></p>
+            <hr>
+            <p class="tip-note">Note: This week's tip was refined with the assistance of Claude 3.7 Sonnet, an AI language model. The Tuesday Teaching Tips are developed in collaboration with UC Merced CETL, as part of the 2024-2025 CETL Faculty Fellows program.</p>
           </div></div>
         </article>
 
@@ -610,9 +1013,15 @@
             <div class="tip-card__chevron" aria-label="Expand tip"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
           </div>
           <div class="tip-card__body"><div class="tip-card__body-inner">
-            <p>Custom AI-generated visuals improve student understanding of complex concepts. Try: <a href="https://chatgpt.com/" target="_blank" rel="noopener">DALL-E (ChatGPT)</a>, <a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a>, <a href="https://designer.microsoft.com/" target="_blank" rel="noopener">Microsoft Designer</a>, or <a href="https://firefly.adobe.com/" target="_blank" rel="noopener">Adobe Firefly</a>.</p>
-            <p>Example prompt: <em>"Create a realistic photo of cumulus clouds forming by convection above a bare soil field surrounded by wetlands in California's Central Valley. Show water vapor rising from heated soil, distant mountains on the horizon."</em></p>
-            <p>Also: <a href="https://www.napkin.ai/" target="_blank" rel="noopener">Napkin.ai</a> transforms notes into polished visuals — ideal for illustrating concepts on the fly.</p>
+            <p>Happy Tuesday!</p>
+            <p>Are you on the search for an image that can introduce your next lecture and spark the interest of your students? Custom visuals can improve students' understanding of complex concepts.</p>
+            <p>The traditional way would be to search on Google Images, but perhaps try one of these AI image creators: <a href="https://chatgpt.com/" target="_blank" rel="noopener">DALL-E (ChatGPT)</a>, <a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a>, <a href="https://designer.microsoft.com/" target="_blank" rel="noopener">Microsoft Designer's Image Creator or Bing Image Creator</a>, <a href="https://firefly.adobe.com/" target="_blank" rel="noopener">Adobe Firefly</a>.</p>
+            <p>Try each to see which one you like. Follow this guide for better prompting.</p>
+            <p>Example of prompt and results: <em>"Create a realistic photo of cumulus clouds forming by convection above a bare soil field surrounded by wetlands in California's Central Valley. Show water vapor visibly rising from the heated soil, with distant mountains on the horizon and natural sunlight highlighting the cloud formation process."</em></p>
+            <p>Finally, <a href="https://www.napkin.ai/" target="_blank" rel="noopener">Napkin.ai</a> transforms notes into polished visuals, which are ideal for illustrating concepts on the fly during lectures. See an example here.</p>
+            <p>Have a great teaching week!<br>Sylvain</p>
+            <hr>
+            <p class="tip-note">Note: This week's tip was refined with the assistance of Claude 3.7 Sonnet, an AI language model. The Tuesday Teaching Tips are developed in collaboration with UC Merced CETL, as part of the 2024-2025 CETL Faculty Fellows program.</p>
           </div></div>
         </article>
 
@@ -626,8 +1035,22 @@
             <div class="tip-card__chevron" aria-label="Expand tip"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
           </div>
           <div class="tip-card__body"><div class="tip-card__body-inner">
-            <ul><li><strong>Brainstorming:</strong> <em>"Create 2 quiz versions from the uploaded transcript — 6 multiple-choice, 3 true/false, 1 matching. Provide the key after each question."</em></li><li><strong>Structuring:</strong> <em>"Rewrite this assignment following the uploaded template. Limit learning objectives to two major ones."</em></li><li><strong>Rubrics:</strong> <em>"Create a 50-point rubric for a college-level Hydrology poster project — 5 criteria max, 3 grading categories."</em></li></ul>
-            <p>Always treat AI output as a first draft that needs your expertise to refine.</p>
+            <p>Happy Tuesday!</p>
+            <p>Have you ever spent countless hours crafting the perfect assignment, only to wish you had that time back for a coffee break? ☕ Well, your AI assistant might just become your new best friend in the assignment creation process!</p>
+            <p>Here are some examples of how AI can help streamline your workflow:</p>
+            <ol>
+              <li><strong>Brainstorming Assignments</strong><br>
+              Prompt example: <em>"Create 2 quiz versions based on the video transcript I am uploading. The quiz should test students' attention to the video content. Include 10 questions: 6 multiple-choice, 3 true/false, and 1 matching question. Provide the key after each question."</em></li>
+              <li><strong>Structuring Assignments</strong><br>
+              Prompt example: <em>"Rewrite this sustainability science lecture preparation assignment following the template structure I uploaded. Limit learning objectives to two major ones."</em></li>
+              <li><strong>Creating Rubrics</strong><br>
+              Prompt example: <em>"Create a 50-point rubric table for a college-level Hydrology poster project. Include 5 evaluation criteria maximum, with 3 grading categories (above/within/below expectations). Provide brief descriptions for each expectation level."</em></li>
+            </ol>
+            <p>Remember: Always review AI-generated content critically – consider it a first draft that needs your expertise to refine!</p>
+            <p>Want to learn more? Join us for our "Demystifying AI in Academia" symposium on Friday, March 14th, 10 am – 12 pm in KL 316. We promise it will be less scary than trying to grade 100 essays in one weekend! 😄</p>
+            <p>Have a great teaching week!<br>Sylvain</p>
+            <hr>
+            <p class="tip-note">Note: This week's tip was refined with the assistance of Claude 3.5 Sonnet, an AI language model. The Tuesday Teaching Tips are developed in collaboration with UC Merced CETL, as part of the 2024-2025 CETL Faculty Fellows program.</p>
           </div></div>
         </article>
 
@@ -641,9 +1064,19 @@
             <div class="tip-card__chevron" aria-label="Expand tip"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
           </div>
           <div class="tip-card__body"><div class="tip-card__body-inner">
-            <p><a href="https://notebooklm.google/" target="_blank" rel="noopener">NotebookLM</a> works exclusively with content you provide — upload up to 50 files (PDFs, text, audio, URLs, Google Drive). Teaching applications:</p>
-            <ul><li>Comprehensive study guides from course materials</li><li>FAQ documents for complex topics</li><li>Interactive audio content for diverse learning styles</li><li>Guided summaries to support student mastery</li></ul>
-            <p>Consider introducing NotebookLM directly to your students as a study tool!</p>
+            <p>After exploring various AI assistants, today let's focus on <a href="https://notebooklm.google/" target="_blank" rel="noopener">NotebookLM</a>, Google's document-focused AI tool that offers unique capabilities for teaching.</p>
+            <p>Unlike other AI tools, NotebookLM works exclusively with content you provide, making it perfect for creating course materials. You can upload up to 50 files (PDFs, text, audio, URLs, Google Drive files) with generous limits of 500,000 words or 200MB per file.</p>
+            <p>Some teaching applications include:</p>
+            <ul>
+              <li>Creating comprehensive study guides from course materials</li>
+              <li>Generating FAQ documents for complex topics</li>
+              <li>Developing interactive audio content for diverse learning styles</li>
+              <li>Supporting students in mastering course content through guided summaries</li>
+            </ul>
+            <p>Consider introducing NotebookLM to your students - it can be a valuable tool for their own study strategies and learning journey!</p>
+            <p>Have a great teaching week!<br>Sylvain</p>
+            <hr>
+            <p class="tip-note">Note: This week's tip was refined with the assistance of Claude 3.5 Sonnet, an AI language model. The Tuesday Teaching Tips are developed in collaboration with UC Merced CETL, as part of the 2024-2025 CETL Faculty Fellows program.</p>
           </div></div>
         </article>
 
@@ -657,9 +1090,24 @@
             <div class="tip-card__chevron" aria-label="Expand tip"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
           </div>
           <div class="tip-card__body"><div class="tip-card__body-inner">
-            <p><a href="https://www.perplexity.ai/" target="_blank" rel="noopener">Perplexity</a> — a free AI-powered search engine, no account required. It searches with real-time web information, provides concise summaries with source citations, and offers follow-up questions to refine your search.</p>
-            <p>Try these prompts:</p>
-            <ul><li><em>"Find a 10-minute class activity for [your course] of [N] college students, focusing on [topic], with academic sources"</em></li><li><em>"Has developing AI tutoring tools benefited student learning in higher education? Provide recent evidence and studies"</em></li></ul>
+            <p>Happy Tuesday!</p>
+            <p>Tired of spending hours searching through traditional search engines for teaching materials?</p>
+            <p>Meet <a href="https://www.perplexity.ai/" target="_blank" rel="noopener">Perplexity</a>, a free AI-powered search engine that requires no account to get started! This tool leverages large language models (like Claude or ChatGPT) to:</p>
+            <ul>
+              <li>Search and answer queries using real-time web information</li>
+              <li>Provide concise, relevant summaries</li>
+              <li>Include source citations directly within responses</li>
+              <li>Offer follow-up questions to refine your search</li>
+            </ul>
+            <p>Want to try? Here are two prompts to test in Perplexity:</p>
+            <ul>
+              <li><em>"Find a 10-minute class activity for [your course] of [number] college students, focusing on [topic], with academic sources"</em></li>
+              <li><em>"Has developing AI tutoring tools benefited student learning in higher education? Provide recent evidence and studies"</em></li>
+            </ul>
+            <p>Speaking of AI search tools, Google released Learn About, a promising "conversational learning companion" that might be particularly useful for our students. More on this tool in a future tip! 🔜</p>
+            <p>Have a great teaching week!<br>Sylvain</p>
+            <hr>
+            <p class="tip-note">Note: This week's tip was refined with the assistance of Claude 3.5 Sonnet, an AI language model. The Tuesday Teaching Tips are developed in collaboration with UC Merced CETL, as part of the 2024-2025 CETL Faculty Fellows program.</p>
           </div></div>
         </article>
 
@@ -673,8 +1121,19 @@
             <div class="tip-card__chevron" aria-label="Expand tip"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
           </div>
           <div class="tip-card__body"><div class="tip-card__body-inner">
-            <ul><li><strong>ChatGPT:</strong> text and voice prompting, image and video creation (subscription)</li><li><strong>Google Gemini:</strong> text-prompting with web-integrated responses and image creation</li><li><strong>Microsoft Copilot:</strong> directly integrated in Microsoft Office tools</li><li><strong>Claude:</strong> known for accuracy and academic-focused features (artifacts, projects, writing styles)</li></ul>
-            <p>For academic work, I recommend Claude due to its precision, strong ethical framework, and robust capabilities for assessments, course materials, and detailed feedback. Always review and verify outputs before use.</p>
+            <p>Happy Tuesday!</p>
+            <p>As AI tools continue to transform education, many of you have asked about the different AI assistants available for teaching. Today, I'd like to share insights about four leading AI assistants that can enhance your teaching workflow:</p>
+            <ul>
+              <li><strong>ChatGPT:</strong> Text and voice prompting, with image and video creation (under a monthly subscription)</li>
+              <li><strong>Google Gemini:</strong> Text-prompting with web-integrated responses and image creation</li>
+              <li><strong>Microsoft Copilot:</strong> Directly integrated in Microsoft Office tools and services, and image creation</li>
+              <li><strong>Claude:</strong> Known for accuracy and academic-focused features (artifacts, projects, writing styles…)</li>
+            </ul>
+            <p>Having experimented with these tools, I would recommend Claude for academic work due to its precision, strong ethical framework, and robust capabilities in areas like coding and mathematical explanations. It's very useful for tasks like developing assessments, creating teaching materials, and providing detailed feedback.</p>
+            <p>Remember: Regardless of which AI assistant you choose, always take time to review and verify any outputs before incorporating them into your teaching materials.</p>
+            <p>Have a great teaching week!<br>Sylvain</p>
+            <hr>
+            <p class="tip-note">Note: This week's tip was refined with the assistance of Claude 3.5 Sonnet, an AI language model. The Tuesday Teaching Tips are developed in collaboration with UC Merced CETL, as part of the 2024-2025 CETL Faculty Fellows program.</p>
           </div></div>
         </article>
 
@@ -688,9 +1147,18 @@
             <div class="tip-card__chevron" aria-label="Expand tip"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
           </div>
           <div class="tip-card__body"><div class="tip-card__body-inner">
-            <ul><li>Generate customized icebreakers based on your course content (e.g., biology-themed "Two Truths and a Lie")</li><li>Create engaging syllabus review activities (transform course objectives into a fun quiz)</li><li>Design first-day surveys that give meaningful insights</li></ul>
-            <p>Try this prompt: <em>"Create an engaging 10-minute icebreaker activity for a [your subject] course that helps students connect course content with their personal interests."</em></p>
-            <p>The goal: use AI to enhance, not replace, those precious first human connections.</p>
+            <p>Good morning,</p>
+            <p>As you meet your students this week, why not leverage AI to create memorable first-day experiences? Here are some creative ways AI can help you break the ice with your new students 🎉:</p>
+            <ul>
+              <li>Generate customized icebreakers based on your course content (e.g., ask Claude to create biology-themed "Two Truths and a Lie")</li>
+              <li>Create engaging syllabus review activities (e.g., use ChatGPT to transform your course objectives into a fun quiz)</li>
+              <li>Design first-day surveys that give meaningful insights (e.g., use NotebookLM to analyze student responses and suggest personalized teaching approaches)</li>
+            </ul>
+            <p>Want to try? Here's a prompt you can use with any AI tool: <em>"Create an engaging 10-minute icebreaker activity for a [your subject] course that helps students connect course content with their personal interests."</em></p>
+            <p>Remember: The goal is to use AI to enhance, not replace, those precious first human connections!</p>
+            <p>Have a great teaching week!<br>Sylvain</p>
+            <hr>
+            <p class="tip-note">Note: This week's tip was refined with the assistance of Claude 3.5 Sonnet, an AI language model. The Tuesday Teaching Tips are developed in collaboration with UC Merced CETL, as part of the 2024-2025 CETL Faculty Fellows program.</p>
           </div></div>
         </article>
 
@@ -698,14 +1166,24 @@
           <div class="tip-card__header" role="button" tabindex="0" aria-expanded="false">
             <div class="tip-card__meta">
               <div class="tip-card__top"><span class="tip-card__code">#01 · Spring '25</span></div>
-              <h3 class="tip-card__title">AI in Teaching: Starting with Clear AI Policies</h3>
+              <h3 class="tip-card__title">AI in Teaching: Starting 2025 with Clear AI Policies</h3>
               <div class="tip-card__tags"><span class="tag tag--ai">AI &amp; Tools</span><span class="tag tag--classroom">Classroom Mgmt</span></div>
             </div>
             <div class="tip-card__chevron" aria-label="Expand tip"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
           </div>
           <div class="tip-card__body"><div class="tip-card__body-inner">
-            <p>Now is the perfect time to review and update your course policies on AI tool usage. Resources:</p>
-            <ul><li><a href="https://docs.google.com/document/d/1RMVwzjc1o0Mi8Blw_-JUTcXv02b2WRH86vw7mi16W3U/edit" target="_blank" rel="noopener">Lance Eaton's comprehensive collection of ~176 AI policies</a></li><li>ESS002 updated course section on Academic Integrity and AI (available on request)</li></ul>
+            <p>Happy New Year 2025 and welcome to a new spring semester!</p>
+            <p>This semester, the Tuesday Teaching Tips will focus on AI and teaching, starting with syllabus preparation.</p>
+            <p>As you're preparing your upcoming classes, now is the perfect time to review and update your course policies regarding AI tool usage in assignments.</p>
+            <p>Need inspiration? Here are two resources to help:</p>
+            <ul>
+              <li><a href="https://docs.google.com/document/d/1RMVwzjc1o0Mi8Blw_-JUTcXv02b2WRH86vw7mi16W3U/edit" target="_blank" rel="noopener">Lance Eaton's comprehensive collection of ~176 AI policies</a></li>
+              <li>My updated course section on Academic Integrity and AI (see attached PDF)</li>
+            </ul>
+            <p>Feel free to contact me with any questions or suggestions!</p>
+            <p>Have a great week!<br>Sylvain</p>
+            <hr>
+            <p class="tip-note">Note: This week's tip was refined with the assistance of Claude 3.5 Sonnet, an AI language model. The Tuesday Teaching Tips are developed in collaboration with UC Merced CETL, as part of the 2024-2025 CETL Faculty Fellows program.</p>
           </div></div>
         </article>
 
