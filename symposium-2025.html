@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demystifying AI in Academia — UC Merced 2025 Symposium</title>
+  <meta name="description" content="Recordings from the Demystifying AI in Academia symposium at UC Merced Research Week, March 14 2025.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* NAV */
+    .site-nav{background:#0d2233;border-bottom:1px solid rgba(255,126,0,0.2);position:sticky;top:0;z-index:100}
+    .site-nav__inner{max-width:1200px;margin-inline:auto;padding-inline:clamp(1.25rem,4vw,2.5rem);display:flex;align-items:center;gap:2rem;height:68px}
+    .site-nav__brand{flex-shrink:0;text-decoration:none;line-height:1.2}
+    .site-nav__brand-welcome{display:block;font-family:'Lora',serif;font-size:0.78rem;font-style:italic;color:#f0f8ff}
+    .site-nav__brand-name{display:block;font-family:'Lora',serif;font-size:1.05rem;font-weight:700;color:#FF7E00}
+    .site-nav__links{display:flex;gap:0.25rem;list-style:none;margin-left:auto}
+    .site-nav__links a{font-size:0.875rem;font-weight:500;color:rgba(240,248,255,0.65);padding:0.35rem 0.85rem;text-decoration:none;position:relative;transition:color 200ms}
+    .site-nav__links a::after{content:'';position:absolute;bottom:1px;left:0.85rem;right:0.85rem;height:1.5px;background:#FF7E00;transform:scaleX(0);transform-origin:left;transition:transform 280ms;border-radius:1px}
+    .site-nav__links a:hover{color:#f0f8ff}.site-nav__links a:hover::after{transform:scaleX(1)}
+    .site-nav__links a.active{color:#FF7E00}.site-nav__links a.active::after{transform:scaleX(1)}
+    .site-nav__toggle{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:40px;height:40px;background:none;border:none;cursor:pointer;padding:4px;margin-left:auto}
+    .site-nav__toggle span{display:block;width:22px;height:1.5px;background:rgba(240,248,255,0.7);border-radius:2px}
+
+    /* HEADER */
+    .page-header{background:#0d2233;padding:3.5rem clamp(1.25rem,4vw,2.5rem) 3.5rem;position:relative;overflow:hidden}
+    .page-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 90% at 90% 50%,rgba(255,126,0,0.07) 0%,transparent 70%);pointer-events:none}
+    .page-header__inner{max-width:1200px;margin-inline:auto;position:relative;z-index:1}
+    .page-header__back{font-size:0.82rem;font-weight:500;color:rgba(240,248,255,0.45);text-decoration:none;display:inline-flex;align-items:center;gap:0.4rem;margin-bottom:1.25rem;transition:color 200ms}
+    .page-header__back:hover{color:#FF7E00}
+    .page-header__back svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+    .page-header__eyebrow{font-size:0.78rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#FF7E00;margin-bottom:0.6rem}
+    .page-header__title{font-family:'Lora',serif;font-size:clamp(2rem,4.5vw,3rem);font-weight:700;color:#f0f8ff;line-height:1.1;margin-bottom:0.9rem}
+    .page-header__intro{font-size:1rem;color:rgba(240,248,255,0.6);line-height:1.75;max-width:60ch;margin-bottom:1.5rem}
+    .page-header__meta{display:flex;flex-wrap:wrap;gap:0.75rem}
+    .meta-badge{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.8rem;font-weight:500;color:rgba(240,248,255,0.5);padding:0.3rem 0.8rem;border:1px solid rgba(255,126,0,0.2);border-radius:100px}
+    .meta-badge svg{width:12px;height:12px;fill:none;stroke:#FF7E00;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+
+    /* BODY */
+    .symp-body{background:#f0f8ff;padding:3rem clamp(1.25rem,4vw,2.5rem) 5rem}
+    .symp-body__inner{max-width:1200px;margin-inline:auto}
+
+    /* NOTE */
+    .symp-note{background:#fff;border-left:3px solid #FF7E00;border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin-bottom:2.25rem;font-size:0.88rem;color:#1a3a52;line-height:1.65}
+
+    /* GRID */
+    .vid-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+
+    /* CARD */
+    .vid-card{background:#fff;border:1.5px solid #d6e8f5;border-radius:12px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:box-shadow 200ms,border-color 200ms}
+    .vid-card:hover{border-color:#FF7E00;box-shadow:0 4px 16px rgba(255,126,0,0.12)}
+    .vid-card__thumb{position:relative;aspect-ratio:16/9;overflow:hidden;background:#0d2233;flex-shrink:0}
+    .vid-card__thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 300ms}
+    .vid-card:hover .vid-card__thumb img{transform:scale(1.04)}
+    .vid-card__play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(13,34,51,0.35);transition:background 200ms}
+    .vid-card:hover .vid-card__play{background:rgba(13,34,51,0.15)}
+    .vid-card__play svg{width:36px;height:36px;fill:#fff;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.4))}
+    .vid-card__body{padding:0.9rem 1rem 1rem;display:flex;flex-direction:column;gap:0.35rem;flex:1}
+    .vid-card__role{align-self:flex-start;font-size:0.62rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.15rem 0.5rem;border-radius:100px}
+    .vid-card__speaker{font-size:0.82rem;font-weight:600;color:#0d2233;margin-top:0.1rem}
+    .vid-card__title{font-family:'Lora',serif;font-size:0.88rem;font-weight:600;color:#1a3a52;line-height:1.4;flex:1}
+
+    /* FOOTER */
+    .site-footer{background:#0d2233;border-top:1px solid rgba(255,126,0,0.15);padding:2.5rem clamp(1.25rem,4vw,2.5rem)}
+    .site-footer__inner{max-width:1200px;margin-inline:auto;display:flex;align-items:center;justify-content:space-between;gap:3rem}
+    .site-footer__left{display:flex;flex-direction:column}
+    .site-footer__address{font-size:0.8rem;color:rgba(240,248,255,0.45);line-height:1.85;font-style:normal}
+    .site-footer__address strong{color:rgba(240,248,255,0.7);display:block;margin-bottom:0.35rem;font-size:0.72rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase}
+    .site-footer__address a{color:rgba(240,248,255,0.45);text-decoration:none;transition:color 200ms}
+    .site-footer__address a:hover{color:#FF7E00}
+    .site-footer__copy{display:block;margin-top:0.75rem;font-size:0.75rem;color:rgba(240,248,255,0.28)}
+    .site-footer__built{display:block;font-size:0.7rem;color:rgba(240,248,255,0.18);margin-top:0.15rem}
+    .site-footer__logos{display:flex;align-items:center;gap:2.25rem;flex-shrink:0}
+    .site-footer__logo-img{height:72px;width:auto;display:block;opacity:0.9;transition:opacity 200ms}
+    .site-footer__logo-img:hover{opacity:1}
+
+    @media(max-width:1024px){.vid-grid{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:700px){.vid-grid{grid-template-columns:repeat(2,1fr)}.site-footer__inner{flex-direction:column;align-items:flex-start;gap:2rem}.site-footer__logos{gap:1.5rem}.site-footer__logo-img{height:54px}}
+    @media(max-width:600px){
+      .site-nav__links{display:none;flex-direction:column;position:absolute;top:68px;left:0;right:0;background:#0d2233;border-bottom:1px solid rgba(255,126,0,0.15);padding:1rem 1.5rem;z-index:99}
+      .site-nav__links.open{display:flex}
+      .site-nav__links a{font-size:1rem;padding:0.65rem 0}
+      .site-nav__links a::after{display:none}
+      .site-nav__toggle{display:flex}
+      .vid-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="site-nav__inner">
+    <a href="index.html" class="site-nav__brand" aria-label="Sylvain Masclin — Home">
+      <span class="site-nav__brand-welcome">Welcome to</span>
+      <span class="site-nav__brand-name">Sylvain Masclin's website</span>
+    </a>
+    <button class="site-nav__toggle" aria-label="Toggle menu" aria-expanded="false" id="nav-toggle">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="site-nav__links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teaching.html">Teaching</a></li>
+      <li><a href="academic.html">Academic</a></li>
+      <li><a href="resources.html" class="active">Resources</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="main">
+  <header class="page-header">
+    <div class="page-header__inner">
+      <a href="resources-presentations.html" class="page-header__back">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        Back to Presentations
+      </a>
+      <p class="page-header__eyebrow">UC Merced Research Week &middot; Symposium Recording</p>
+      <h1 class="page-header__title">Demystifying AI in Academia</h1>
+      <p class="page-header__intro">Real-world AI applications in research, teaching, and administration — presented by faculty, lecturers, and graduate students from across UC Merced. Organized by Sylvain Masclin in collaboration with UC Merced CETL.</p>
+      <div class="page-header__meta">
+        <span class="meta-badge"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Friday, March 14, 2025</span>
+        <span class="meta-badge"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Teaching Commons Learning Lab, KL 316</span>
+        <span class="meta-badge"><svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>12 recordings</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="symp-body">
+    <div class="symp-body__inner">
+      <p class="symp-note">All recordings are unlisted on YouTube — share this page to give others access. Click any card to watch. Note: Suraj Sahu's recording is not yet available.</p>
+      <div class="vid-grid">
+        <a href="https://youtu.be/mDO2lPBdRg0" target="_blank" rel="noopener" class="vid-card" aria-label="Welcome & Opening Remarks — Sylvain Masclin">
+          <div class="vid-card__thumb">
+            <img src="https://img.youtube.com/vi/mDO2lPBdRg0/mqdefault.jpg" alt="Welcome & Opening Remarks" loading="lazy">
+            <div class="vid-card__play" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
+          <div class="vid-card__body">
+            <span class="vid-card__role" style="background:rgba(255,126,0,0.15);color:#cc6500">Assistant Teaching Professor</span>
+            <p class="vid-card__speaker">Sylvain Masclin</p>
+            <p class="vid-card__title">Welcome & Opening Remarks</p>
+          </div>
+        </a>
+        <a href="https://youtu.be/5gpDj8OJcj4" target="_blank" rel="noopener" class="vid-card" aria-label="The AI-Enhanced Researcher: Transforming Research Workflows with Modern Tools — Sayantani Ghosh">
+          <div class="vid-card__thumb">
+            <img src="https://img.youtube.com/vi/5gpDj8OJcj4/mqdefault.jpg" alt="The AI-Enhanced Researcher: Transforming Research Workflows with Modern Tools" loading="lazy">
+            <div class="vid-card__play" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
+          <div class="vid-card__body">
+            <span class="vid-card__role" style="background:rgba(255,126,0,0.15);color:#cc6500">Faculty</span>
+            <p class="vid-card__speaker">Sayantani Ghosh</p>
+            <p class="vid-card__title">The AI-Enhanced Researcher: Transforming Research Workflows with Modern Tools</p>
+          </div>
+        </a>
+        <a href="https://youtu.be/XY0DhMfXItc" target="_blank" rel="noopener" class="vid-card" aria-label="AI-Based Virtual TA — Ranjan Das">
+          <div class="vid-card__thumb">
+            <img src="https://img.youtube.com/vi/XY0DhMfXItc/mqdefault.jpg" alt="AI-Based Virtual TA" loading="lazy">
+            <div class="vid-card__play" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
+          <div class="vid-card__body">
+            <span class="vid-card__role" style="background:rgba(74,109,140,0.12);color:#4a6d8c">Graduate Student</span>
+            <p class="vid-card__speaker">Ranjan Das</p>
+            <p class="vid-card__title">AI-Based Virtual TA</p>
+          </div>
+        </a>
+        <a href="https://youtu.be/pKj2XtOiLCA" target="_blank" rel="noopener" class="vid-card" aria-label="Emerging with ChatGPT — Christopher Bivins">
+          <div class="vid-card__thumb">
+            <img src="https://img.youtube.com/vi/pKj2XtOiLCA/mqdefault.jpg" alt="Emerging with ChatGPT" loading="lazy">
+            <div class="vid-card__play" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
+          <div class="vid-card__body">
+            <span class="vid-card__role" style="background:rgba(74,109,140,0.12);color:#4a6d8c">Graduate Student</span>
+            <p class="vid-card__speaker">Christopher Bivins</p>
+            <p class="vid-card__title">Emerging with ChatGPT</p>
+          </div>
+        </a>
+        <a href="https://youtu.be/9bLD7kyYK-0" target="_blank" rel="noopener" class="vid-card" aria-label="AI Coding Companion — Teamrat A. Ghezzehei">
+          <div class="vid-card__thumb">
+            <img src="https://img.youtube.com/vi/9bLD7kyYK-0/mqdefault.jpg" alt="AI Coding Companion" loading="lazy">
+            <div class="vid-card__play" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
+          <div class="vid-card__body">
+            <span class="vid-card__role" style="background:rgba(255,126,0,0.15);color:#cc6500">Faculty</span>
+            <p class="vid-card__speaker">Teamrat A. Ghezzehei</p>
+            <p class="vid-card__title">AI Coding Companion</p>
+          </div>
+        </a>
+        <a href="https://youtu.be/t99Bx_mR_ts" target="_blank" rel="noopener" class="vid-card" aria-label="AI Tools for Scientific Writing — Brian Utter">
+          <div class="vid-card__thumb">
+            <img src="https://img.youtube.com/vi/t99Bx_mR_ts/mqdefault.jpg" alt="AI Tools for Scientific Writing" loading="lazy">
+            <div class="vid-card__play" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
+          <div class="vid-card__body">
+            <span class="vid-card__role" style="background:rgba(255,126,0,0.15);color:#cc6500">Faculty</span>
+            <p class="vid-card__speaker">Brian Utter</p>
+            <p class="vid-card__title">AI Tools for Scientific Writing</p>
+          </div>
+        </a>
+        <a href="https://youtu.be/RNBR1PLhorU" target="_blank" rel="noopener" class="vid-card" aria-label="Smart Summaries: How AI Organizes Classroom Feedback — Junhyeok Jang">
+          <div class="vid-card__thumb">
+            <img src="https://img.youtube.com/vi/RNBR1PLhorU/mqdefault.jpg" alt="Smart Summaries: How AI Organizes Classroom Feedback" loading="lazy">
+            <div class="vid-card__play" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
+          <div class="vid-card__body">
+            <span class="vid-card__role" style="background:rgba(13,34,51,0.1);color:#1a3a52">Lecturer</span>
+            <p class="vid-card__speaker">Junhyeok Jang</p>
+            <p class="vid-card__title">Smart Summaries: How AI Organizes Classroom Feedback</p>
+          </div>
+        </a>
+        <a href="https://youtu.be/z4akgYnNlmY" target="_blank" rel="noopener" class="vid-card" aria-label="See Where You Read via Eye Tracking — Younce Yang">
+          <div class="vid-card__thumb">
+            <img src="https://img.youtube.com/vi/z4akgYnNlmY/mqdefault.jpg" alt="See Where You Read via Eye Tracking" loading="lazy">
+            <div class="vid-card__play" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
+          <div class="vid-card__body">
+            <span class="vid-card__role" style="background:rgba(74,109,140,0.12);color:#4a6d8c">Graduate Student</span>
+            <p class="vid-card__speaker">Younce Yang</p>
+            <p class="vid-card__title">See Where You Read via Eye Tracking</p>
+          </div>
+        </a>
+        <a href="https://youtu.be/9xGFO3LUjhQ" target="_blank" rel="noopener" class="vid-card" aria-label="AI in CS1: Personalized Projects to Boost Student Creativity — Ayush Pandey">
+          <div class="vid-card__thumb">
+            <img src="https://img.youtube.com/vi/9xGFO3LUjhQ/mqdefault.jpg" alt="AI in CS1: Personalized Projects to Boost Student Creativity" loading="lazy">
+            <div class="vid-card__play" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
+          <div class="vid-card__body">
+            <span class="vid-card__role" style="background:rgba(255,126,0,0.15);color:#cc6500">Faculty</span>
+            <p class="vid-card__speaker">Ayush Pandey</p>
+            <p class="vid-card__title">AI in CS1: Personalized Projects to Boost Student Creativity</p>
+          </div>
+        </a>
+        <a href="https://youtu.be/Fwmn3x2AqgM" target="_blank" rel="noopener" class="vid-card" aria-label="From One Language to Another: How AI is Changing Research Communication — Yulissa T. Pérez Rojas">
+          <div class="vid-card__thumb">
+            <img src="https://img.youtube.com/vi/Fwmn3x2AqgM/mqdefault.jpg" alt="From One Language to Another: How AI is Changing Research Communication" loading="lazy">
+            <div class="vid-card__play" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
+          <div class="vid-card__body">
+            <span class="vid-card__role" style="background:rgba(74,109,140,0.12);color:#4a6d8c">Graduate Student</span>
+            <p class="vid-card__speaker">Yulissa T. Pérez Rojas</p>
+            <p class="vid-card__title">From One Language to Another: How AI is Changing Research Communication</p>
+          </div>
+        </a>
+        <a href="https://youtu.be/l3HIPbdC-RU" target="_blank" rel="noopener" class="vid-card" aria-label="Closing Presentation — Butovens Médé">
+          <div class="vid-card__thumb">
+            <img src="https://img.youtube.com/vi/l3HIPbdC-RU/mqdefault.jpg" alt="Closing Presentation" loading="lazy">
+            <div class="vid-card__play" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
+          <div class="vid-card__body">
+            <span class="vid-card__role" style="background:rgba(13,34,51,0.1);color:#1a3a52">Lecturer</span>
+            <p class="vid-card__speaker">Butovens Médé</p>
+            <p class="vid-card__title">Closing Presentation</p>
+          </div>
+        </a>
+        <a href="https://youtu.be/ujylg2O6k8k" target="_blank" rel="noopener" class="vid-card" aria-label="Closing Presentation — Josiah Beharry">
+          <div class="vid-card__thumb">
+            <img src="https://img.youtube.com/vi/ujylg2O6k8k/mqdefault.jpg" alt="Closing Presentation" loading="lazy">
+            <div class="vid-card__play" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
+          <div class="vid-card__body">
+            <span class="vid-card__role" style="background:rgba(74,109,140,0.12);color:#4a6d8c">Graduate Student</span>
+            <p class="vid-card__speaker">Josiah Beharry</p>
+            <p class="vid-card__title">Closing Presentation</p>
+          </div>
+        </a>
+      </div>
+          </div>
+          <div class="vid-card__body">
+            <span class="vid-card__role" style="background:rgba(255,126,0,0.15);color:#cc6500">Assistant Teaching Professor</span>
+            <p class="vid-card__speaker">Sylvain Masclin</p>
+            <p class="vid-card__title">Welcome & Opening Remarks</p>
+          </div>
+        </a>
+        <a href="https://youtu.be/5gpDj8OJcj4" target="_blank" rel="noopener" class="vid-card" aria-label="The AI-Enhanced Researcher: Transforming Research Workflows with Modern Tools — Sayantani Ghosh">
+          <div class="vid-card__thumb">
+            <img src="https://img.youtube.com/vi/5gpDj8OJcj4/mqdefault.jpg" alt="The AI-Enhanced Researcher: Transforming Research Workflows with Modern Tools" loading="lazy">
+            <div class="vid-card__play" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
+          <div class="vid-card__body">
+            <span class="vid-card__role" style="background:rgba(255,126,0,0.15);color:#cc6500">Faculty</span>
+            <p class="vid-card__speaker">Sayantani Ghosh</p>
+            <p class="vid-card__title">The AI-Enhanced Researcher: Transforming Research Workflows with Modern Tools</p>
+          </div>
+        </a>
+        <a href="https://youtu.be/XY0DhMfXItc" target="_blank" rel="noopener" class="vid-card" aria-label="AI-Based Virtual TA — Ranjan Das">
+          <div class="vid-card__thumb">
+            <img src="https://img.youtube.com/vi/XY0DhMfXItc/mqdefault.jpg" alt="AI-Based Virtual TA" loading="lazy">
+            <div class="vid-card__play" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
+          <div class="vid-card__body">
+            <span class="vid-card__role" style="background:rgba(74,109,140,0.12);color:#4a6d8c">Graduate Student</span>
+            <p class="vid-card__speaker">Ranjan Das</p>
+            <p class="vid-card__title">AI-Based Virtual TA</p>
+          </div>
+        </a>
+        <a href="https://youtu.be/pKj2XtOiLCA" target="_blank" rel="noopener" class="vid-card" aria-label="Emerging with ChatGPT — Christopher Bivins">
+          <div class="vid-card__thumb">
+            <img src="https://img.youtube.com/vi/pKj2XtOiLCA/mqdefault.jpg" alt="Emerging with ChatGPT" loading="lazy">
+            <div class="vid-card__play" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
+          <div class="vid-card__body">
+            <span class="vid-card__role" style="background:rgba(74,109,140,0.12);color:#4a6d8c">Graduate Student</span>
+            <p class="vid-card__speaker">Christopher Bivins</p>
+            <p class="vid-card__title">Emerging with ChatGPT</p>
+          </div>
+        </a>
+        <a href="https://youtu.be/9bLD7kyYK-0" target="_blank" rel="noopener" class="vid-card" aria-label="AI Coding Companion — Teamrat A. Ghezzehei">
+          <div class="vid-card__thumb">
+            <img src="https://img.youtube.com/vi/9bLD7kyYK-0/mqdefault.jpg" alt="AI Coding Companion" loading="lazy">
+            <div class="vid-card__play" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
+          <div class="vid-card__body">
+            <span class="vid-card__role" style="background:rgba(255,126,0,0.15);color:#cc6500">Faculty</span>
+            <p class="vid-card__speaker">Teamrat A. Ghezzehei</p>
+            <p class="vid-card__title">AI Coding Companion</p>
+          </div>
+        </a>
+        <a href="https://youtu.be/t99Bx_mR_ts" target="_blank" rel="noopener" class="vid-card" aria-label="AI Tools for Scientific Writing — Brian Utter">
+          <div class="vid-card__thumb">
+            <img src="https://img.youtube.com/vi/t99Bx_mR_ts/mqdefault.jpg" alt="AI Tools for Scientific Writing" loading="lazy">
+            <div class="vid-card__play" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
+          <div class="vid-card__body">
+            <span class="vid-card__role" style="background:rgba(255,126,0,0.15);color:#cc6500">Faculty</span>
+            <p class="vid-card__speaker">Brian Utter</p>
+            <p class="vid-card__title">AI Tools for Scientific Writing</p>
+          </div>
+        </a>
+        <a href="https://youtu.be/RNBR1PLhorU" target="_blank" rel="noopener" class="vid-card" aria-label="Smart Summaries: How AI Organizes Classroom Feedback — Junhyeok Jang">
+          <div class="vid-card__thumb">
+            <img src="https://img.youtube.com/vi/RNBR1PLhorU/mqdefault.jpg" alt="Smart Summaries: How AI Organizes Classroom Feedback" loading="lazy">
+            <div class="vid-card__play" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
+          <div class="vid-card__body">
+            <span class="vid-card__role" style="background:rgba(13,34,51,0.1);color:#1a3a52">Lecturer</span>
+            <p class="vid-card__speaker">Junhyeok Jang</p>
+            <p class="vid-card__title">Smart Summaries: How AI Organizes Classroom Feedback</p>
+          </div>
+        </a>
+        <a href="https://youtu.be/z4akgYnNlmY" target="_blank" rel="noopener" class="vid-card" aria-label="See Where You Read via Eye Tracking — Younce Yang">
+          <div class="vid-card__thumb">
+            <img src="https://img.youtube.com/vi/z4akgYnNlmY/mqdefault.jpg" alt="See Where You Read via Eye Tracking" loading="lazy">
+            <div class="vid-card__play" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
+          <div class="vid-card__body">
+            <span class="vid-card__role" style="background:rgba(74,109,140,0.12);color:#4a6d8c">Graduate Student</span>
+            <p class="vid-card__speaker">Younce Yang</p>
+            <p class="vid-card__title">See Where You Read via Eye Tracking</p>
+          </div>
+        </a>
+        <a href="https://youtu.be/9xGFO3LUjhQ" target="_blank" rel="noopener" class="vid-card" aria-label="AI in CS1: Personalized Projects to Boost Student Creativity — Ayush Pandey">
+          <div class="vid-card__thumb">
+            <img src="https://img.youtube.com/vi/9xGFO3LUjhQ/mqdefault.jpg" alt="AI in CS1: Personalized Projects to Boost Student Creativity" loading="lazy">
+            <div class="vid-card__play" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
+          <div class="vid-card__body">
+            <span class="vid-card__role" style="background:rgba(255,126,0,0.15);color:#cc6500">Faculty</span>
+            <p class="vid-card__speaker">Ayush Pandey</p>
+            <p class="vid-card__title">AI in CS1: Personalized Projects to Boost Student Creativity</p>
+          </div>
+        </a>
+        <a href="https://youtu.be/Fwmn3x2AqgM" target="_blank" rel="noopener" class="vid-card" aria-label="From One Language to Another: How AI is Changing Research Communication — Yulissa T. Pérez Rojas">
+          <div class="vid-card__thumb">
+            <img src="https://img.youtube.com/vi/Fwmn3x2AqgM/mqdefault.jpg" alt="From One Language to Another: How AI is Changing Research Communication" loading="lazy">
+            <div class="vid-card__play" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
+          <div class="vid-card__body">
+            <span class="vid-card__role" style="background:rgba(74,109,140,0.12);color:#4a6d8c">Graduate Student</span>
+            <p class="vid-card__speaker">Yulissa T. Pérez Rojas</p>
+            <p class="vid-card__title">From One Language to Another: How AI is Changing Research Communication</p>
+          </div>
+        </a>
+        <a href="https://youtu.be/l3HIPbdC-RU" target="_blank" rel="noopener" class="vid-card" aria-label="Think Like Sherlock, Let LLM Be Your Watson — Suraj Sahu">
+          <div class="vid-card__thumb">
+            <img src="https://img.youtube.com/vi/l3HIPbdC-RU/mqdefault.jpg" alt="Think Like Sherlock, Let LLM Be Your Watson" loading="lazy">
+            <div class="vid-card__play" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
+          <div class="vid-card__body">
+            <span class="vid-card__role" style="background:rgba(74,109,140,0.12);color:#4a6d8c">Graduate Student</span>
+            <p class="vid-card__speaker">Suraj Sahu</p>
+            <p class="vid-card__title">Think Like Sherlock, Let LLM Be Your Watson</p>
+          </div>
+        </a>
+        <a href="https://youtu.be/ujylg2O6k8k" target="_blank" rel="noopener" class="vid-card" aria-label="Presentation — to be confirmed — Butovens Médé">
+          <div class="vid-card__thumb">
+            <img src="https://img.youtube.com/vi/ujylg2O6k8k/mqdefault.jpg" alt="Presentation — to be confirmed" loading="lazy">
+            <div class="vid-card__play" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
+          <div class="vid-card__body">
+            <span class="vid-card__role" style="background:rgba(13,34,51,0.1);color:#1a3a52">Lecturer</span>
+            <p class="vid-card__speaker">Butovens Médé</p>
+            <p class="vid-card__title">Presentation — to be confirmed</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="site-footer__inner">
+    <div class="site-footer__left">
+      <address class="site-footer__address">
+        <strong>Get in Touch</strong>
+        Office: SRE 453<br>University of California, Merced<br>
+        5200 N. Lake Road, Merced CA 95343<br>
+        <a href="mailto:smasclin@ucmerced.edu">smasclin@ucmerced.edu</a>
+      </address>
+      <span class="site-footer__copy">&copy; 2008&ndash;2026 Sylvain Masclin</span>
+      <span class="site-footer__built">Website built through a conversation with Claude&nbsp;AI, version Sonnet&nbsp;4.6</span>
+    </div>
+    <div class="site-footer__logos">
+      <a href="https://les.ucmerced.edu/ess" target="_blank" rel="noopener"><img src="images/ESS%20Logo.png" alt="ESS — Environmental Systems Science" class="site-footer__logo-img"></a>
+      <a href="https://les.ucmerced.edu" target="_blank" rel="noopener"><img src="images/LES-logo.png" alt="Life &amp; Environmental Sciences — UC Merced" class="site-footer__logo-img"></a>
+      <a href="https://www.ucmerced.edu" target="_blank" rel="noopener"><img src="images/ucmlogo_boomer.png" alt="UC Merced" class="site-footer__logo-img"></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var t=document.getElementById('nav-toggle'),n=document.getElementById('nav-links');
+  t.addEventListener('click',function(){var o=n.classList.toggle('open');t.setAttribute('aria-expanded',o);});
+</script>
+</body>
+</html>
