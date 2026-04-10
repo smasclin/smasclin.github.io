@@ -116,22 +116,22 @@
         <span class="site-nav__brand-welcome">Welcome to</span>
         <span class="site-nav__brand-name">Sylvain Masclin's website</span>
       </a>
-      
       <ul class="site-nav__links" role="list">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="teaching.html" class="active">Teaching</a></li>
+        
         <li><a href="resources.html">Resources</a></li>
       </ul>
       <button class="site-nav__toggle" id="nav-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-drawer">
         <span></span><span></span><span></span>
       </button>
     </div>
-    <div class="site-nav__drawer" id="nav-drawer">
-      
+    <div class="site-nav__drawer" id="nav-drawer" role="menu">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="teaching.html" class="active">Teaching</a>
+      
       <a href="resources.html">Resources</a>
     </div>
   </nav>
@@ -155,15 +155,20 @@
       <div class="portfolio__inner">
         <p class="portfolio__label" id="portfolio-label">Teaching portfolio — all courses</p>
         <div class="portfolio__frame" id="portfolio-frame">
-          <img src="images/Teaching_Portfolio.png" alt="Teaching portfolio diagram showing all courses taught by Sylvain Masclin — ESS, CHEM, ENVE, and BIOL courses with approximate class sizes." id="portfolio-img">
+          <img
+            src="images/Teaching%20Portfolio.png"
+            alt="Teaching portfolio diagram showing all courses taught by Sylvain Masclin — ESS, CHEM, ENVE, and BIOL courses with approximate class sizes."
+            id="portfolio-img"
+          >
         </div>
         <p class="portfolio__caption">Click the image to enlarge.</p>
       </div>
     </section>
 
+    <!-- Lightbox overlay -->
     <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Teaching portfolio enlarged view">
-      <button class="lightbox__close" id="lightbox-close" aria-label="Close">✕</button>
-      <img src="images/Teaching_Portfolio.png" alt="Teaching portfolio — full size">
+      <button class="lightbox__close" id="lightbox-close" aria-label="Close enlarged view">✕</button>
+      <img src="images/Teaching%20Portfolio.png" alt="Teaching portfolio — full size">
     </div>
 
     <section class="coming-soon" aria-labelledby="coming-label">
@@ -232,6 +237,7 @@
   </footer>
 
   <script>
+    // Nav toggle
     const toggle = document.getElementById('nav-toggle');
     const drawer = document.getElementById('nav-drawer');
     toggle.addEventListener('click', () => {
@@ -239,13 +245,20 @@
       toggle.setAttribute('aria-expanded', open);
       toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
     });
+
+    // Lightbox
     const frame    = document.getElementById('portfolio-frame');
     const lightbox = document.getElementById('lightbox');
     const closer   = document.getElementById('lightbox-close');
+
     frame.addEventListener('click', () => lightbox.classList.add('open'));
     closer.addEventListener('click', () => lightbox.classList.remove('open'));
-    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.classList.remove('open'); });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') lightbox.classList.remove('open'); });
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) lightbox.classList.remove('open');
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') lightbox.classList.remove('open');
+    });
   </script>
 
 </body>
