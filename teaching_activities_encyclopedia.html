@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Teaching Activities Encyclopedia — Sylvain Masclin</title>
+  <title>Active Learning, Built for Your Class — Sylvain Masclin</title>
   <meta name="description" content="67 evidence-based active learning strategies for university instructors — searchable and filterable by time, modality, Bloom's taxonomy, class size, and difficulty.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,9 +34,18 @@
     .page-header__back svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
     .page-header__eyebrow{font-family:'DM Sans',sans-serif;font-size:0.78rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#FF7E00;margin-bottom:0.75rem}
     .page-header__title{font-family:'Lora',serif;font-size:clamp(2rem,4.5vw,3rem);font-weight:700;color:#f0f8ff;line-height:1.1;margin-bottom:0.9rem}
-    .page-header__intro{font-family:'DM Sans',sans-serif;font-size:1rem;color:rgba(240,248,255,0.6);line-height:1.75;max-width:60ch;margin-bottom:1.5rem}
+    .page-header__intro{font-family:'DM Sans',sans-serif;font-size:0.92rem;color:rgba(240,248,255,0.6);line-height:1.75;max-width:60ch;margin-bottom:0.5rem}
     .page-header__source-link{color:rgba(240,248,255,0.65);text-underline-offset:3px;transition:color 200ms}
     .page-header__source-link:hover{color:#FF7E00}
+    .page-header__sources{font-family:'DM Sans',sans-serif;font-size:0.72rem;color:rgba(240,248,255,0.35);line-height:1.6;max-width:60ch;margin-bottom:1.5rem}
+    .page-header__sources a{color:rgba(240,248,255,0.4);text-underline-offset:2px;transition:color 200ms}
+    .page-header__sources a:hover{color:#FF7E00}
+    .page-header__howto{margin-bottom:1.75rem;max-width:60ch}
+    .page-header__howto-title{font-family:'DM Sans',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#FF7E00;margin-bottom:0.6rem}
+    .page-header__howto-steps{list-style:none;padding:0;display:flex;flex-direction:column;gap:0.35rem}
+    .page-header__howto-steps li{font-family:'DM Sans',sans-serif;font-size:0.85rem;color:rgba(240,248,255,0.6);line-height:1.55;display:flex;gap:0.6rem;align-items:baseline}
+    .page-header__howto-steps li span.step-num{font-family:'DM Sans',sans-serif;font-size:0.68rem;font-weight:700;background:#FF7E00;color:#fff;border-radius:50%;width:17px;height:17px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;top:0px}
+    .page-header__howto-steps li strong{color:rgba(240,248,255,0.85)}
     .page-header__stats{display:flex;gap:2rem;flex-wrap:wrap}
     .ph-stat{}
     .ph-stat__number{font-family:'Lora',serif;font-size:1.8rem;font-weight:700;color:#FF7E00;line-height:1}
@@ -110,6 +119,29 @@
     .enc-no-results h3{font-family:'Lora',serif;font-size:1.3rem;color:#0d2233;margin-bottom:0.5rem}
     .enc-no-results p{font-family:'DM Sans',sans-serif;font-size:0.9rem}
 
+    /* ── AI Try-it button ───────────────────────────── */
+    .act-card__ai-btn{display:flex;align-items:center;justify-content:center;gap:0.45rem;margin-top:0.75rem;padding:0.55rem 1rem;background:#FF7E00;color:#fff;border:none;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:600;cursor:pointer;width:100%;transition:background 200ms,transform 150ms;text-decoration:none}
+    .act-card__ai-btn:hover{background:#cc6500;transform:translateY(-1px)}
+    .act-card__ai-btn svg{width:15px;height:15px;flex-shrink:0}
+
+    /* ── AI Modal ───────────────────────────────────── */
+    .ai-modal-overlay{position:fixed;inset:0;background:rgba(13,34,51,0.55);backdrop-filter:blur(3px);z-index:1000;display:flex;align-items:flex-end;justify-content:center;opacity:0;pointer-events:none;transition:opacity 250ms}
+    .ai-modal-overlay.open{opacity:1;pointer-events:all}
+    .ai-modal{background:#fff;width:100%;max-width:720px;height:82vh;max-height:740px;border-radius:18px 18px 0 0;display:flex;flex-direction:column;transform:translateY(40px);transition:transform 300ms cubic-bezier(.22,1,.36,1);overflow:hidden}
+    .ai-modal-overlay.open .ai-modal{transform:translateY(0)}
+    .ai-modal__header{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.25rem;border-bottom:1px solid #e8f0f8;flex-shrink:0;background:linear-gradient(to right,rgba(255,126,0,0.06),#fff)}
+    .ai-modal__title{font-family:'Lora',serif;font-size:1rem;font-weight:700;color:#0d2233;display:flex;align-items:center;gap:0.5rem}
+    .ai-modal__title svg{color:#FF7E00;width:18px;height:18px}
+    .ai-modal__activity{font-family:'DM Sans',sans-serif;font-size:0.75rem;color:#4a6d8c;margin-top:0.1rem}
+    .ai-modal__close{background:none;border:none;cursor:pointer;color:#4a6d8c;padding:0.3rem;border-radius:6px;display:flex;transition:color 200ms,background 200ms}
+    .ai-modal__close:hover{color:#0d2233;background:#f0f8ff}
+    .ai-modal__close svg{width:20px;height:20px}
+    .ai-modal__iframe{flex:1;width:100%;border:none;display:block}
+
+    @media(max-width:640px){
+      .ai-modal{height:90vh;max-height:none;border-radius:14px 14px 0 0}
+    }
+
     /* ── Footer ──────────────────────────────────────── */
     .site-footer{background:#0d2233;border-top:1px solid rgba(255,126,0,0.15);padding:2.5rem clamp(1.25rem,4vw,2.5rem)}
     .site-footer__inner{max-width:1200px;margin-inline:auto;display:flex;align-items:center;justify-content:space-between;gap:3rem}
@@ -179,8 +211,17 @@
         Back to Resources
       </a>
       <p class="page-header__eyebrow">Active Learning Reference</p>
-      <h1 class="page-header__title">Teaching Activities Encyclopedia</h1>
-      <p class="page-header__intro">Evidence-based active learning strategies for university instructors — searchable and filterable by time, modality, Bloom's taxonomy, class size, and difficulty. Curated from <a href="https://teaching.tools/activities" target="_blank" rel="noopener" class="page-header__source-link">teaching.tools</a> and the <a href="https://activelearning.uga.edu/instructor-development/instructor-resources/" target="_blank" rel="noopener" class="page-header__source-link">University of Georgia Active Learning Initiative</a>.</p>
+      <h1 class="page-header__title">Active Learning, Built for Your Class</h1>
+      <p class="page-header__intro">67 evidence-based active learning strategies — searchable by time, modality, Bloom's taxonomy, class size, and difficulty.</p>
+      <p class="page-header__sources">Sources: <a href="https://teaching.tools/activities" target="_blank" rel="noopener">teaching.tools</a> &amp; <a href="https://activelearning.uga.edu/instructor-development/instructor-resources/" target="_blank" rel="noopener">University of Georgia Active Learning Initiative</a></p>
+      <div class="page-header__howto">
+        <p class="page-header__howto-title">How to use this tool</p>
+        <ol class="page-header__howto-steps">
+          <li><span class="step-num">1</span><span><strong>Browse or search</strong> the library to find an activity that fits your context.</span></li>
+          <li><span class="step-num">2</span><span><strong>Use the filters</strong> to narrow by time available, class size, modality, Bloom's level, or difficulty.</span></li>
+          <li><span class="step-num">3</span><span><strong>Click "Design with AI"</strong> on any card to get personalized, ready-to-use scenarios for your specific course and topic.</span></li>
+        </ol>
+      </div>
       <div class="page-header__stats">
         <div class="ph-stat">
           <div class="ph-stat__number">67</div>
@@ -356,6 +397,10 @@
             ${tagsRow('Class Size',f.class_size,'size')}
             ${tagsRow('Difficulty',f.difficulty,'difficulty')}
           </div>
+          <button class="act-card__ai-btn" data-activity="${esc(a.name)}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Design with AI
+          </button>
         </div>
       </article>`;
   }
@@ -406,5 +451,62 @@
     applyFilters();
   });
 </script>
+  <!-- AI Modal -->
+  <div class="ai-modal-overlay" id="ai-modal-overlay" role="dialog" aria-modal="true" aria-label="AI scenario generator">
+    <div class="ai-modal">
+      <div class="ai-modal__header">
+        <div>
+          <div class="ai-modal__title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a10 10 0 0 1 10 10c0 5.52-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2z"/><path d="M12 16v-4M12 8h.01"/></svg>
+            Design with AI
+          </div>
+          <div class="ai-modal__activity" id="ai-modal-activity-label"></div>
+        </div>
+        <button class="ai-modal__close" id="ai-modal-close" aria-label="Close">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <iframe
+        class="ai-modal__iframe"
+        id="ai-modal-iframe"
+        src="about:blank"
+        title="AI scenario generator"
+        allow="clipboard-write">
+      </iframe>
+    </div>
+  </div>
+
+  <script>
+    const PLAYLAB_URL = 'https://www.playlab.ai/project/cmnuip25h5ghsnc0wbnswnc6d';
+    const overlay     = document.getElementById('ai-modal-overlay');
+    const iframe      = document.getElementById('ai-modal-iframe');
+    const closeBtn    = document.getElementById('ai-modal-close');
+    const actLabel    = document.getElementById('ai-modal-activity-label');
+
+    function openAIModal(activityName) {
+      actLabel.textContent = activityName;
+      iframe.src = PLAYLAB_URL;
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    }
+
+    function closeAIModal() {
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+      // Delay src clear so close animation plays first
+      setTimeout(() => { iframe.src = 'about:blank'; }, 300);
+    }
+
+    closeBtn.addEventListener('click', closeAIModal);
+    overlay.addEventListener('click', e => { if (e.target === overlay) closeAIModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAIModal(); });
+
+    // Delegated click handler for all AI buttons
+    document.getElementById('activities-container').addEventListener('click', e => {
+      const btn = e.target.closest('.act-card__ai-btn');
+      if (btn) openAIModal(btn.dataset.activity);
+    });
+  </script>
 </body>
 </html>
