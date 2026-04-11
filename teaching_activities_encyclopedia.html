@@ -165,6 +165,7 @@
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="teaching.html">Teaching</a></li>
+      <li><a href="academic.html">Academic</a></li>
       <li><a href="resources.html" class="active">Resources</a></li>
     </ul>
   </div>
@@ -395,6 +396,15 @@
     applyFilters();
   }
 
+
   document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('activities-container').innerHTML = activities.map(renderCard).join('');
-    ['search-input','filter-time','filter-m
+    ['search-input','filter-time','filter-modality','filter-bloom','filter-size','filter-difficulty'].forEach(id => {
+      const el = document.getElementById(id);
+      el.addEventListener(el.tagName === 'SELECT' ? 'change' : 'input', applyFilters);
+    });
+    applyFilters();
+  });
+</script>
+</body>
+</html>
