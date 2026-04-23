@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shared Tools — Sylvain Masclin</title>
+  <meta name="description" content="Custom AI apps and interactive tools built by Sylvain Masclin for ESS students at UC Merced. Free to use, no account required.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* NAV */
+    .site-nav{background:#0d2233;border-bottom:1px solid rgba(255,126,0,0.2);position:sticky;top:0;z-index:100}
+    .site-nav__inner{max-width:1200px;margin-inline:auto;padding-inline:clamp(1.25rem,4vw,2.5rem);display:flex;align-items:center;gap:2rem;height:68px}
+    .site-nav__brand{flex-shrink:0;text-decoration:none;line-height:1.2}
+    .site-nav__brand-welcome{display:block;font-family:'Lora',serif;font-size:0.78rem;font-style:italic;font-weight:400;color:#f0f8ff;letter-spacing:0.01em}
+    .site-nav__brand-name{display:block;font-family:'Lora',serif;font-size:1.05rem;font-weight:700;color:#FF7E00;letter-spacing:0.01em}
+    .site-nav__links{display:flex;gap:0.25rem;list-style:none;margin-left:auto}
+    .site-nav__links a{font-family:'DM Sans',sans-serif;font-size:0.875rem;font-weight:500;color:rgba(240,248,255,0.65);padding:0.35rem 0.85rem;text-decoration:none;position:relative;transition:color 200ms ease}
+    .site-nav__links a::after{content:'';position:absolute;bottom:1px;left:0.85rem;right:0.85rem;height:1.5px;background:#FF7E00;transform:scaleX(0);transform-origin:left;transition:transform 280ms ease;border-radius:1px}
+    .site-nav__links a:hover{color:#f0f8ff}
+    .site-nav__links a:hover::after{transform:scaleX(1)}
+    .site-nav__links a.active{color:#FF7E00}
+    .site-nav__links a.active::after{transform:scaleX(1)}
+    .site-nav__toggle{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:40px;height:40px;background:none;border:none;cursor:pointer;padding:4px;margin-left:auto}
+    .site-nav__toggle span{display:block;width:22px;height:1.5px;background:rgba(240,248,255,0.7);border-radius:2px}
+
+    /* PAGE HEADER */
+    .page-header{background:#0d2233;padding:3.5rem clamp(1.25rem,4vw,2.5rem) 3.5rem;position:relative;overflow:hidden}
+    .page-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 90% at 90% 50%,rgba(255,126,0,0.07) 0%,transparent 70%);pointer-events:none}
+    .page-header__inner{max-width:1200px;margin-inline:auto;position:relative;z-index:1}
+    .page-header__back{font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:500;color:rgba(240,248,255,0.45);text-decoration:none;display:inline-flex;align-items:center;gap:0.4rem;margin-bottom:1.25rem;transition:color 200ms}
+    .page-header__back:hover{color:#FF7E00}
+    .page-header__back svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+    .page-header__eyebrow{font-family:'DM Sans',sans-serif;font-size:0.78rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#FF7E00;margin-bottom:0.75rem}
+    .page-header__title{font-family:'Lora',serif;font-size:clamp(2rem,4.5vw,3rem);font-weight:700;color:#f0f8ff;line-height:1.1;margin-bottom:0.9rem}
+    .page-header__intro{font-family:'DM Sans',sans-serif;font-size:1rem;color:rgba(240,248,255,0.6);line-height:1.75;max-width:60ch}
+
+    /* BODY */
+    .tools-body{background:#f0f8ff;padding:3.5rem clamp(1.25rem,4vw,2.5rem) 5rem}
+    .tools-body__inner{max-width:1200px;margin-inline:auto}
+
+    /* NOTE */
+    .tools-note{background:#fff;border-left:3px solid #FF7E00;border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin-bottom:2.5rem;font-family:'DM Sans',sans-serif;font-size:0.88rem;color:#1a3a52;line-height:1.65}
+
+    /* GRID */
+    .tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem}
+
+    /* TOOL CARD */
+    .tool-card{background:#fff;border:1.5px solid #d6e8f5;border-radius:14px;padding:1.6rem 1.5rem 1.4rem;display:flex;flex-direction:column;gap:0.6rem;text-decoration:none;transition:box-shadow 220ms,border-color 220ms}
+    .tool-card:hover{border-color:#FF7E00;box-shadow:0 4px 20px rgba(255,126,0,0.13)}
+
+    /* Emoji icon pill — matches .res-card__tool-icon on resources page */
+    .tool-card__icon{width:52px;height:52px;border-radius:12px;background:rgba(255,126,0,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-bottom:0.25rem;font-size:1.55rem;line-height:1}
+
+    .tool-card__id{font-family:'DM Sans',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#4a6d8c}
+    .tool-card__name{font-family:'Lora',serif;font-size:1.05rem;font-weight:700;color:#0d2233;line-height:1.3}
+    .tool-card__desc{font-family:'DM Sans',sans-serif;font-size:0.86rem;color:#4a6d8c;line-height:1.65;flex:1}
+    .tool-card__cta{display:inline-flex;align-items:center;gap:0.35rem;font-family:'DM Sans',sans-serif;font-size:0.8rem;font-weight:600;color:#FF7E00;margin-top:0.25rem}
+    .tool-card__cta svg{width:11px;height:11px;fill:none;stroke:#FF7E00;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+
+    /* FOOTER */
+    .site-footer{background:#0d2233;border-top:1px solid rgba(255,126,0,0.15);padding:2.5rem clamp(1.25rem,4vw,2.5rem)}
+    .site-footer__inner{max-width:1200px;margin-inline:auto;display:flex;align-items:center;justify-content:space-between;gap:3rem}
+    .site-footer__left{display:flex;flex-direction:column;gap:0}
+    .site-footer__address{font-family:'DM Sans',sans-serif;font-size:0.8rem;color:rgba(240,248,255,0.45);line-height:1.85;font-style:normal}
+    .site-footer__address strong{color:rgba(240,248,255,0.7);font-style:normal;display:block;margin-bottom:0.35rem;font-size:0.72rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase}
+    .site-footer__address a{color:rgba(240,248,255,0.45);text-decoration:none;transition:color 200ms}
+    .site-footer__address a:hover{color:#FF7E00}
+    .site-footer__copy{display:block;margin-top:0.75rem;font-family:'DM Sans',sans-serif;font-size:0.75rem;color:rgba(240,248,255,0.28)}
+    .site-footer__built{display:block;font-family:'DM Sans',sans-serif;font-size:0.7rem;color:rgba(240,248,255,0.18);line-height:1.5;margin-top:0.15rem}
+    .site-footer__logos{display:flex;align-items:center;gap:2.25rem;flex-shrink:0}
+    .site-footer__logo-img{height:72px;width:auto;display:block;opacity:0.9;transition:opacity 200ms}
+    .site-footer__logo-img:hover{opacity:1}
+
+    @media(max-width:700px){
+      .site-footer__inner{flex-direction:column;align-items:flex-start;gap:2rem}
+      .site-footer__logos{gap:1.5rem}
+      .site-footer__logo-img{height:54px}
+    }
+    @media(max-width:600px){
+      .site-nav__links{display:none;flex-direction:column;position:absolute;top:68px;left:0;right:0;background:#0d2233;border-bottom:1px solid rgba(255,126,0,0.15);padding:1rem 1.5rem;z-index:99}
+      .site-nav__links.open{display:flex}
+      .site-nav__links a{font-size:1rem;padding:0.65rem 0}
+      .site-nav__links a::after{display:none}
+      .site-nav__toggle{display:flex}
+      .tools-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="site-nav__inner">
+    <a href="index.html" class="site-nav__brand" aria-label="Sylvain Masclin — Home">
+      <span class="site-nav__brand-welcome">Welcome to</span>
+      <span class="site-nav__brand-name">Sylvain Masclin's website</span>
+    </a>
+    <button class="site-nav__toggle" aria-label="Toggle menu" aria-expanded="false" id="nav-toggle">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="site-nav__links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teaching.html">Teaching</a></li>
+      <li><a href="resources.html" class="active">Resources</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="main">
+  <header class="page-header">
+    <div class="page-header__inner">
+      <a href="resources.html" class="page-header__back">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+        Back to Resources
+      </a>
+      <p class="page-header__eyebrow">AI Apps &amp; Interactive Games</p>
+      <h1 class="page-header__title">Shared Tools</h1>
+      <p class="page-header__intro">Custom apps and interactive games built for ESS students at UC Merced — AI tutors, climate simulators, sorting challenges, and review games. Free to use, no account required.</p>
+    </div>
+  </header>
+
+  <div class="tools-body">
+    <div class="tools-body__inner">
+
+      <p class="tools-note">All tools open in a new tab. Most run directly in your browser with no login needed. Tools built on Playlab.ai use conversational AI; the others are standalone web apps.</p>
+
+      <div class="tools-grid">
+
+        <!-- T-ESS 001 — Tutoring Tool -->
+        <a href="https://www.playlab.ai/project/cm15csirt05yfktfwwzveqarm" target="_blank" rel="noopener" class="tool-card">
+          <div class="tool-card__icon" aria-hidden="true">🤖</div>
+          <span class="tool-card__id">T-ESS 001 · Tutoring Tool</span>
+          <span class="tool-card__name">Tutoring ESS001</span>
+          <span class="tool-card__desc">An AI-powered tutoring assistant loaded exclusively with ESS001 (Introduction to Environmental Science) course content, supporting student learning through concept review, mock tests, study guides, and review games. Available 24/7!</span>
+          <span class="tool-card__cta">Open tool <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </a>
+
+        <!-- ESS002 Jeopardy — Review Activity -->
+        <a href="https://funny-horse-5498db.netlify.app/" target="_blank" rel="noopener" class="tool-card">
+          <div class="tool-card__icon" aria-hidden="true">🎮</div>
+          <span class="tool-card__id">ESS002 · Review Activity</span>
+          <span class="tool-card__name">ESS002 Jeopardy — Module 1</span>
+          <span class="tool-card__desc">A Jeopardy-style game to review the first four chapters of the course — sustainability science, life on Earth, ecosystems, and human population — and prepare for the exam.</span>
+          <span class="tool-card__cta">Open tool <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </a>
+
+        <!-- Climate Dialogue Simulator — Role-Play -->
+        <a href="https://www.playlab.ai/project/cmo3wt0q31gs6m20wjg5ejfar" target="_blank" rel="noopener" class="tool-card">
+          <div class="tool-card__icon" aria-hidden="true">🌍</div>
+          <span class="tool-card__id">Role-Play Activity</span>
+          <span class="tool-card__name">Climate Dialogue Simulator</span>
+          <span class="tool-card__desc">Play the role of a climate change supporter or denier and engage in a conversation with the opposite side to practice critical thinking and argumentation.</span>
+          <span class="tool-card__cta">Open tool <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </a>
+
+        <!-- Interview of an Environmentalist — Role-Play -->
+        <a href="https://www.playlab.ai/project/clrqo23vw00s6pw9gnqmczlqk" target="_blank" rel="noopener" class="tool-card">
+          <div class="tool-card__icon" aria-hidden="true">🎙️</div>
+          <span class="tool-card__id">Role-Play Activity</span>
+          <span class="tool-card__name">Interview of an Environmentalist</span>
+          <span class="tool-card__desc">Interview a major current or past environmentalist figure through a configured chatbot to explore key moments in environmentalism history.</span>
+          <span class="tool-card__cta">Open tool <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </a>
+
+        <!-- Sort It Right — Interactive Game -->
+        <a href="https://illustrious-parfait-686761.netlify.app/" target="_blank" rel="noopener" class="tool-card">
+          <div class="tool-card__icon" aria-hidden="true">♻️</div>
+          <span class="tool-card__id">Interactive Game</span>
+          <span class="tool-card__name">Sort It Right</span>
+          <span class="tool-card__desc">Based on Merced County waste management guidelines, your goal is to drag and drop 20 everyday items into the correct bin — grey (landfill), blue (recycling), or green (organics).</span>
+          <span class="tool-card__cta">Open tool <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </a>
+
+        <!-- Cloud Identification — Interactive Game -->
+        <a href="https://cheery-babka-eb5d85.netlify.app/" target="_blank" rel="noopener" class="tool-card">
+          <div class="tool-card__icon" aria-hidden="true">☁️</div>
+          <span class="tool-card__id">Interactive Game</span>
+          <span class="tool-card__name">Cloud Identification</span>
+          <span class="tool-card__desc">Identify clouds in 16 different photographs. A cloud chart is always available to guide you — so you can sharpen your atmospheric science skills without the pressure.</span>
+          <span class="tool-card__cta">Open tool <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </a>
+
+        <!-- Your World, Your Climate — Interactive Game -->
+        <a href="https://brilliant-fox-cf8a5b.netlify.app/" target="_blank" rel="noopener" class="tool-card">
+          <div class="tool-card__icon" aria-hidden="true">🌡️</div>
+          <span class="tool-card__id">Interactive Game</span>
+          <span class="tool-card__name">Your World, Your Climate</span>
+          <span class="tool-card__desc">Take a short quiz about your lifestyle and discover how much warming would occur if everyone shared your habits. Learn about the environmental consequences — and about the changes that make a real difference.</span>
+          <span class="tool-card__cta">Open tool <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </a>
+
+      </div><!-- /.tools-grid -->
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="site-footer__inner">
+    <div class="site-footer__left">
+      <address class="site-footer__address">
+        <strong>Get in Touch</strong>
+        Office: SRE 453<br>
+        University of California, Merced<br>
+        5200 N. Lake Road, Merced CA 95343<br>
+        <a href="mailto:smasclin@ucmerced.edu">smasclin@ucmerced.edu</a>
+      </address>
+      <span class="site-footer__copy">© 2008–2026 Sylvain Masclin</span>
+      <span class="site-footer__built">Website built through a conversation with Claude AI, version Sonnet 4.6</span>
+    </div>
+    <div class="site-footer__logos">
+      <a href="https://les.ucmerced.edu/ess" target="_blank" rel="noopener" aria-label="Environmental Systems Science — UC Merced">
+        <img src="images/ESS%20Logo.png" alt="ESS — Environmental Systems Science" class="site-footer__logo-img">
+      </a>
+      <a href="https://les.ucmerced.edu" target="_blank" rel="noopener" aria-label="Life and Environmental Sciences — UC Merced">
+        <img src="images/LES-logo.png" alt="Life &amp; Environmental Sciences — UC Merced" class="site-footer__logo-img">
+      </a>
+      <a href="https://www.ucmerced.edu" target="_blank" rel="noopener" aria-label="University of California, Merced">
+        <img src="images/ucmlogo_boomer.png" alt="UC Merced" class="site-footer__logo-img">
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var navToggle=document.getElementById('nav-toggle');
+  var navLinks=document.getElementById('nav-links');
+  if(navToggle){navToggle.addEventListener('click',function(){var open=navLinks.classList.toggle('open');navToggle.setAttribute('aria-expanded',open)})}
+</script>
+</body>
+</html>
