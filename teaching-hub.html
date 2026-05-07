@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teaching Hub — ESS 001 Geosphere</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --amber:       #C8813A;
+      --amber-light: #E8A85F;
+      --amber-pale:  #FDF3E7;
+      --terra:       #A0522D;
+      --terra-deep:  #6B3520;
+      --ink:         #1C1410;
+      --ink-soft:    #3D2B1F;
+      --warm-mid:    #7A5C44;
+      --warm-light:  #B89880;
+      --parchment:   #FAF6F0;
+      --paper:       #F5EFE6;
+      --white:       #FFFFFF;
+      --rule:        rgba(200,129,58,0.22);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--parchment);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ─── Noise texture overlay ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.5;
+    }
+
+    /* ─── Header ─── */
+    header {
+      position: relative;
+      background: var(--ink);
+      color: var(--parchment);
+      padding: 3.5rem 2rem 3rem;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--amber), var(--terra), var(--amber-light), var(--amber));
+    }
+
+    /* Decorative circle in header */
+    header::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(200,129,58,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .header-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .header-eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--amber-light);
+      margin-bottom: 0.75rem;
+    }
+
+    header h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    header h1 em {
+      font-style: italic;
+      color: var(--amber-light);
+    }
+
+    .header-desc {
+      font-size: 1rem;
+      color: rgba(250,246,240,0.70);
+      max-width: 520px;
+      font-weight: 300;
+    }
+
+    /* ─── Main layout ─── */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ─── Section label ─── */
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .section-label span {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--amber);
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+
+    /* ─── Chapter cards ─── */
+    .chapters {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      align-items: stretch;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(28,20,16,0.06);
+      transition: box-shadow 0.25s ease, transform 0.25s ease;
+      opacity: 0;
+      animation: fadeUp 0.5s ease forwards;
+    }
+
+    .card:nth-child(1) { animation-delay: 0.05s; }
+    .card:nth-child(2) { animation-delay: 0.15s; }
+    .card:nth-child(3) { animation-delay: 0.25s; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .card:hover {
+      box-shadow: 0 6px 28px rgba(200,129,58,0.18);
+      transform: translateY(-2px);
+    }
+
+    /* Chapter number stripe */
+    .card-num {
+      background: var(--ink);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem 0;
+      gap: 0.25rem;
+    }
+
+    .card-num .ch-label {
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--warm-light);
+    }
+
+    .card-num .ch-digit {
+      font-family: 'Lora', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--amber-light);
+      line-height: 1;
+    }
+
+    /* Card body */
+    .card-body {
+      padding: 1.4rem 1.6rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.45rem;
+    }
+
+    .card-topic {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--amber);
+    }
+
+    .card-title {
+      font-family: 'Lora', serif;
+      font-size: 1.08rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.35;
+    }
+
+    .card-sub {
+      font-size: 0.82rem;
+      color: var(--warm-mid);
+      font-weight: 300;
+    }
+
+    /* Tags */
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.3rem;
+    }
+
+    .tag {
+      font-size: 0.67rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      background: var(--amber-pale);
+      color: var(--terra);
+      border: 1px solid rgba(200,129,58,0.25);
+      border-radius: 2px;
+      padding: 0.15rem 0.55rem;
+    }
+
+    /* Download action */
+    .card-action {
+      display: flex;
+      align-items: center;
+      padding: 0 1.5rem;
+      border-left: 1px solid var(--rule);
+    }
+
+    .btn-dl {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      text-decoration: none;
+      color: var(--amber);
+      padding: 0.6rem 0.8rem;
+      border-radius: 3px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .btn-dl:hover {
+      background: var(--amber);
+      color: var(--white);
+    }
+
+    .btn-dl svg {
+      width: 22px;
+      height: 22px;
+      stroke-width: 1.8;
+      transition: transform 0.2s;
+    }
+
+    .btn-dl:hover svg {
+      transform: translateY(2px);
+    }
+
+    .btn-dl span {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ─── Info box ─── */
+    .info-box {
+      background: var(--paper);
+      border-left: 3px solid var(--amber);
+      border-radius: 0 4px 4px 0;
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 3rem;
+      opacity: 0;
+      animation: fadeUp 0.5s ease 0.35s forwards;
+    }
+
+    .info-box p {
+      font-size: 0.88rem;
+      color: var(--ink-soft);
+      line-height: 1.6;
+    }
+
+    .info-box strong {
+      color: var(--terra);
+      font-weight: 600;
+    }
+
+    /* ─── Footer ─── */
+    footer {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid var(--rule);
+      background: var(--paper);
+      padding: 1.5rem 2rem;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 0.78rem;
+      color: var(--warm-mid);
+      font-weight: 300;
+    }
+
+    footer a {
+      color: var(--amber);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    footer a:hover { text-decoration: underline; }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 600px) {
+      .card {
+        grid-template-columns: 60px 1fr;
+        grid-template-rows: auto auto;
+      }
+      .card-num { padding: 1rem 0; }
+      .card-num .ch-digit { font-size: 1.5rem; }
+      .card-action {
+        grid-column: 1 / -1;
+        border-left: none;
+        border-top: 1px solid var(--rule);
+        justify-content: center;
+        padding: 0.8rem;
+      }
+      .btn-dl { flex-direction: row; gap: 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <p class="header-eyebrow">ESS 001 · Earth and Environmental Science</p>
+      <h1>Teaching <em>Hub</em></h1>
+      <p class="header-desc">Your course eBook library — readings and lectures to support your independent study before each lab session.</p>
+    </div>
+  </header>
+
+  <main>
+
+    <div class="info-box">
+      <p><strong>How to use these materials:</strong> Each chapter is both the lecture and the textbook for that unit. Read carefully, follow all embedded links, and watch the linked videos before coming to class. You should be able to summarize the main ideas in your own words before your lab session.</p>
+    </div>
+
+    <div class="section-label">
+      <span>Geosphere — Course eBooks</span>
+    </div>
+
+    <div class="chapters">
+
+      <!-- Chapter 1 -->
+      <div class="card">
+        <div class="card-num">
+          <span class="ch-label">Ch</span>
+          <span class="ch-digit">1</span>
+        </div>
+        <div class="card-body">
+          <span class="card-topic">Cosmology · Astrophysics</span>
+          <span class="card-title">Origins of the Universe and Solar System</span>
+          <span class="card-sub">Big Bang theory · Electromagnetic spectrum · Hubble's Law · Nebular hypothesis · Moon-forming impact</span>
+          <div class="card-tags">
+            <span class="tag">Big Bang</span>
+            <span class="tag">Doppler Shift</span>
+            <span class="tag">Solar Nebula</span>
+            <span class="tag">Accretion</span>
+          </div>
+        </div>
+        <div class="card-action">
+          <a class="btn-dl" href="Ebook_Geosphere_Chapter_1_Origins_of_the_Universe_and_Solar_System.pdf" target="_blank" title="Open Chapter 1 PDF">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 16v-8m0 8l-3-3m3 3l3-3M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2"/>
+            </svg>
+            <span>Open</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Chapter 2 -->
+      <div class="card">
+        <div class="card-num">
+          <span class="ch-label">Ch</span>
+          <span class="ch-digit">2</span>
+        </div>
+        <div class="card-body">
+          <span class="card-topic">Geology · Biology · Tectonics</span>
+          <span class="card-title">Earth, Life Story &amp; Plate Tectonics</span>
+          <span class="card-sub">Geologic time · Origin of life · Continental drift · Tectonic boundaries · Rock cycle</span>
+          <div class="card-tags">
+            <span class="tag">Plate Tectonics</span>
+            <span class="tag">Geologic Time</span>
+            <span class="tag">Evolution</span>
+            <span class="tag">Rock Cycle</span>
+          </div>
+        </div>
+        <div class="card-action">
+          <a class="btn-dl" href="Ebook_Geosphere_Chapter_2_Earth_Life_story_and_Plate_tectonics.pdf" target="_blank" title="Open Chapter 2 PDF">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 16v-8m0 8l-3-3m3 3l3-3M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2"/>
+            </svg>
+            <span>Open</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Chapter 3 -->
+      <div class="card">
+        <div class="card-num">
+          <span class="ch-label">Ch</span>
+          <span class="ch-digit">3</span>
+        </div>
+        <div class="card-body">
+          <span class="card-topic">Hazards · Mineralogy · Petrology</span>
+          <span class="card-title">Earthquakes, Volcanoes, Minerals &amp; Rocks</span>
+          <span class="card-sub">Seismic waves · Volcanic processes · Mineral identification · Igneous, sedimentary &amp; metamorphic rocks</span>
+          <div class="card-tags">
+            <span class="tag">Seismology</span>
+            <span class="tag">Volcanism</span>
+            <span class="tag">Mineralogy</span>
+            <span class="tag">Rock Types</span>
+          </div>
+        </div>
+        <div class="card-action">
+          <a class="btn-dl" href="Ebook_Geosphere_Chapter_3_Earthquakes_Volcanoes_Minerals_and_Rocks.pdf" target="_blank" title="Open Chapter 3 PDF">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 16v-8m0 8l-3-3m3 3l3-3M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2"/>
+            </svg>
+            <span>Open</span>
+          </a>
+        </div>
+      </div>
+
+    </div><!-- /.chapters -->
+
+  </main>
+
+  <footer>
+    <p>ESS 001 · UC Merced &nbsp;·&nbsp; Questions? Visit <a href="https://smasclin.com" target="_blank">smasclin.com</a></p>
+  </footer>
+
+</body>
+</html>
