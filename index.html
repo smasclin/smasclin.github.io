@@ -95,15 +95,9 @@
     .trivia__inner { max-width:1200px; margin-inline:auto; }
     .trivia__heading { font-family:'Lora',serif; font-size:1.1rem; font-weight:700; color:#2a1a0a; line-height:1.25; margin:0 0 0.75rem; display:flex; align-items:center; gap:0.6rem; }
     .trivia__heading::before { content:''; display:block; width:22px; height:1.5px; background:#B5763A; border-radius:1px; flex-shrink:0; }
-    .trivia__progress { display:flex; gap:4px; margin-bottom:0.75rem; }
-    .t-dot { width:7px; height:7px; border-radius:50%; background:rgba(181,118,58,0.2); transition:background 0.2s; flex-shrink:0; }
-    .t-dot.t-done-ok { background:#7ab648; }
-    .t-dot.t-done-miss { background:#d97355; }
-    .t-dot.t-current { background:#B5763A; }
     .trivia__card { background:#fff; border:1px solid rgba(181,118,58,0.18); border-radius:12px; padding:1.1rem 0; display:grid; grid-template-columns:1fr 1fr 1fr; }
     .trivia__col { padding:0 1.25rem; }
     .trivia__col + .trivia__col { border-left:1px solid rgba(181,118,58,0.12); }
-    .trivia__counter { font-family:'DM Sans',sans-serif; font-size:0.68rem; color:#B5763A; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; margin:0 0 0.3rem; }
     .trivia__meta { font-family:'DM Sans',sans-serif; font-size:0.68rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:#8a6040; margin:0 0 0.5rem; }
     .trivia__q { font-family:'Lora',serif; font-size:0.92rem; color:#2a1a0a; line-height:1.6; margin:0; }
     .trivia__opts { display:flex; flex-direction:column; gap:0.35rem; }
@@ -116,12 +110,6 @@
     .t-opt-key { font-weight:700; min-width:14px; color:#B5763A; flex-shrink:0; font-size:0.76rem; }
     .trivia__opt.t-correct .t-opt-key, .trivia__opt.t-reveal .t-opt-key { color:#3a7a10; }
     .trivia__opt.t-wrong .t-opt-key { color:#a03010; }
-    .trivia__actions { margin-top:0.65rem; display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap; }
-    .trivia__btn { font-family:'DM Sans',sans-serif; font-size:0.78rem; font-weight:500; padding:0.35rem 0.9rem; border-radius:100px; border:1.5px solid #B5763A; background:transparent; color:#B5763A; cursor:pointer; display:none; transition:background 0.15s, color 0.15s; }
-    .trivia__btn:hover { background:#B5763A; color:#fff; }
-    .trivia__btn.t-vis { display:inline-block; }
-    .trivia__score { font-family:'DM Sans',sans-serif; font-size:0.73rem; color:#8a6040; display:none; }
-    .trivia__score.t-vis { display:block; }
     .trivia__feedback { display:flex; flex-direction:column; gap:0.45rem; height:100%; justify-content:center; }
     .t-fb-placeholder { font-family:'DM Sans',sans-serif; font-size:0.8rem; color:rgba(181,118,58,0.35); font-style:italic; text-align:center; line-height:1.6; }
     .t-fb-headline { font-family:'DM Sans',sans-serif; font-size:0.87rem; font-weight:600; margin:0; }
@@ -228,22 +216,15 @@
     <section class="trivia" aria-labelledby="trivia-heading">
       <div class="trivia__inner">
         <h2 class="trivia__heading" id="trivia-heading">Pedagogy Trivia</h2>
-        <div class="trivia__progress" id="t-progress" aria-hidden="true"></div>
         <div class="trivia__card">
           <!-- Col 1: question -->
           <div class="trivia__col">
-            <p class="trivia__counter" id="t-counter"></p>
             <p class="trivia__meta" id="t-meta"></p>
             <p class="trivia__q" id="t-q"></p>
           </div>
-          <!-- Col 2: options + next button -->
+          <!-- Col 2: options -->
           <div class="trivia__col">
             <div class="trivia__opts" id="t-opts" role="list"></div>
-            <div class="trivia__actions">
-              <button class="trivia__btn" id="t-next">Next question →</button>
-              <button class="trivia__btn" id="t-restart">Start over</button>
-              <span class="trivia__score" id="t-score"></span>
-            </div>
           </div>
           <!-- Col 3: feedback -->
           <div class="trivia__col">
@@ -393,7 +374,7 @@
         ref:'See Tuesday Teaching Tip S26-01 in the Resources tab' },
       { type:'mc', topic:'TTT F25-03 · Teaching in the TikTok News Era',
         q:'A 2024 survey of 253 UC Merced students found that the leading daily news source for students was:',
-        opts:['A. Newspapers (print or online)','B. TikTok','C. TV news','D. Podcasts'], correct:1,
+        opts:['Newspapers (print or online)','TikTok','TV news','Podcasts'], correct:1,
         win:'Nailed it! 🎯', lose:'Not quite — the answer might surprise you!',
         detail:'78% of surveyed students used social media for daily news, with TikTok leading at 40%. This challenges our assumptions about how students encounter information — and makes source evaluation skills more important than ever to weave into any discipline.',
         ref:'See Tuesday Teaching Tip F25-03 in the Resources tab' },
@@ -405,7 +386,7 @@
         ref:'See Tuesday Teaching Tip S26-02 in the Resources tab' },
       { type:'mc', topic:'TTT · Mid-Lecture Re-Engagement',
         q:'Which of the following is a quick, effective technique for re-engaging students during a long lecture?',
-        opts:['A. Speed through the remaining slides','B. A one-minute paper — students write their biggest question','C. Show a video clip (10+ minutes)','D. Open Q&A with no structure'], correct:1,
+        opts:['Speed through the remaining slides','A one-minute paper — students write their biggest question','Show a video clip (10+ minutes)','Open Q&A with no structure'], correct:1,
         win:'Spot on! ⭐', lose:'Close — there\'s a better option here!',
         detail:'A One-Minute Paper is a classic active learning micro-break: students write the most important point they just heard, or their biggest lingering question. It re-engages cognition, gives you formative feedback, and costs almost no class time.',
         ref:'See Tuesday Teaching Tips on micro-breaks in the Resources tab' },
@@ -417,7 +398,7 @@
         ref:'See Tuesday Teaching Tip #8 in the Resources tab' },
       { type:'mc', topic:'TTT #10 · AI-Proof Your Assignments',
         q:'When redesigning assignments to be more resistant to AI misuse, which approach also develops higher-order thinking?',
-        opts:['A. More multiple-choice quizzes','B. Stricter word limits on essays','C. Portfolio, oral, or media-production assignments','D. Unannounced pop quizzes'], correct:2,
+        opts:['More multiple-choice quizzes','Stricter word limits on essays','Portfolio, oral, or media-production assignments','Unannounced pop quizzes'], correct:2,
         win:'Excellent! 🌟', lose:'Think about Bloom\'s Taxonomy here!',
         detail:'Portfolios, oral presentations, infographics, and media projects require students to analyze, evaluate, and create — the top tiers of Bloom\'s Taxonomy. These are harder to outsource to AI and also richer educational experiences.',
         ref:'See Tuesday Teaching Tip #10 in the Resources tab' },
@@ -429,7 +410,7 @@
         ref:'See Tuesday Teaching Tip F25-11 in the Resources tab' },
       { type:'mc', topic:'TTT · Mid-Semester Check-In',
         q:'What is the main advantage of a mid-semester student check-in over waiting for end-of-semester evaluations?',
-        opts:['A. It counts as active learning time','B. Feedback can be acted on during the same semester','C. It replaces the need for office hours','D. It improves final exam scores automatically'], correct:1,
+        opts:['It counts as active learning time','Feedback can be acted on during the same semester','It replaces the need for office hours','It improves final exam scores automatically'], correct:1,
         win:'Yes — that\'s the key insight! ✅', lose:'Think about timing — when can feedback actually be useful?',
         detail:'End-of-semester evaluations help future students; mid-semester check-ins help the students in front of you right now. A simple three-question survey (what\'s helping, what\'s challenging, what would you change) shows students you care and lets you make real adjustments mid-course.',
         ref:'See Tuesday Teaching Tips on mid-semester feedback in the Resources tab' },
@@ -441,7 +422,7 @@
         ref:'See Tuesday Teaching Tip F25-03 in the Resources tab' },
       { type:'mc', topic:'TTT S26-01 · First Week Strategies',
         q:'What should an instructor\'s first-day self-introduction ideally accomplish?',
-        opts:['A. Cover the full syllabus in detail','B. Show students you are a person, not just a title','C. Establish firm disciplinary boundaries','D. Administer a diagnostic quiz'], correct:1,
+        opts:['Cover the full syllabus in detail','Show students you are a person, not just a title','Establish firm disciplinary boundaries','Administer a diagnostic quiz'], correct:1,
         win:'Perfectly said! 🌟', lose:'There\'s a better use of that first meeting!',
         detail:'Sharing personal context — why you love the subject, where you\'re from, what your hobbies are — helps students see you as a full human being. This lowers anxiety, increases approachability, and sets a collaborative tone for the semester.',
         ref:'See Tuesday Teaching Tip S26-01 in the Resources tab' },
@@ -453,13 +434,13 @@
         ref:'See Tuesday Teaching Tip #10 in the Resources tab' },
       { type:'mc', topic:'TTT S26-02 · Accountability in Group Work',
         q:'When distributing a printed group activity, what simple accountability strategy is recommended?',
-        opts:['A. Assign a group leader who grades peers','B. Have students write their names on the sheet','C. Collect phones during the activity','D. Require a written reflection afterward'], correct:1,
+        opts:['Assign a group leader who grades peers','Have students write their names on the sheet','Collect phones during the activity','Require a written reflection afterward'], correct:1,
         win:'Simple and effective — exactly right! ✅', lose:'Think simple — the best solutions often are!',
         detail:'Having students write their names on a shared activity sheet creates lightweight accountability without surveillance or complexity. It signals that participation matters and makes it easy to give participation credit via a follow-up keyword quiz on Canvas.',
         ref:'See Tuesday Teaching Tip S26-02 in the Resources tab' }
     ];
 
-    var tOrder = [], tIdx = 0, tResults = [], tAnswered = false;
+    var tOrder = [], tAnswered = false;
 
     function tShuffle(arr) {
       var a = arr.slice();
@@ -470,23 +451,11 @@
       return a;
     }
 
-    function tBuildProgress() {
-      var row = document.getElementById('t-progress');
-      row.innerHTML = '';
-      tOrder.forEach(function(_, i) {
-        var d = document.createElement('div');
-        d.className = 't-dot';
-        if (i < tIdx) d.classList.add(tResults[i] ? 't-done-ok' : 't-done-miss');
-        else if (i === tIdx) d.classList.add('t-current');
-        row.appendChild(d);
-      });
-    }
+    function tBuildProgress() {}  // no-op — single question mode
 
     function tLoad() {
-      tAnswered = false;
-      var q = TTT_Q[tOrder[tIdx]];
+      var q = TTT_Q[tOrder[0]];
       var keys = ['A','B','C','D'];
-      document.getElementById('t-counter').textContent = 'Question ' + (tIdx + 1) + ' of ' + tOrder.length;
       document.getElementById('t-meta').textContent = q.type === 'tf' ? 'True / False' : 'Multiple choice';
       document.getElementById('t-q').textContent = q.q;
       var opts = document.getElementById('t-opts');
@@ -500,20 +469,10 @@
         btn.addEventListener('click', function() { tAnswer(i, q); });
         opts.appendChild(btn);
       });
-      var fb = document.getElementById('t-feedback');
-      fb.className = 'trivia__feedback';
-      fb.innerHTML = '<p class="t-fb-placeholder">Select an answer to reveal the explanation.</p>';
-      document.getElementById('t-next').classList.remove('t-vis');
-      document.getElementById('t-restart').classList.remove('t-vis');
-      document.getElementById('t-score').classList.remove('t-vis');
-      tBuildProgress();
     }
 
     function tAnswer(chosen, q) {
-      if (tAnswered) return;
-      tAnswered = true;
       var isOk = chosen === q.correct;
-      tResults[tIdx] = isOk;
       var btns = document.querySelectorAll('.trivia__opt');
       btns.forEach(function(btn, i) {
         btn.disabled = true;
@@ -527,26 +486,9 @@
         '<hr class="t-fb-divider">' +
         '<p class="t-fb-detail">' + q.detail + '</p>' +
         '<p class="t-fb-ref">📌 ' + q.ref + '</p>';
-      tBuildProgress();
-      var isLast = tIdx === tOrder.length - 1;
-      if (!isLast) {
-        document.getElementById('t-next').classList.add('t-vis');
-      } else {
-        document.getElementById('t-restart').classList.add('t-vis');
-        var score = tResults.filter(Boolean).length;
-        var sc = document.getElementById('t-score');
-        sc.textContent = score + '/' + tOrder.length + ' correct — nice work!';
-        sc.classList.add('t-vis');
-      }
     }
 
-    document.getElementById('t-next').addEventListener('click', function() { tIdx++; tLoad(); });
-    document.getElementById('t-restart').addEventListener('click', function() {
-      tIdx = 0; tResults = [];
-      tOrder = tShuffle(TTT_Q.map(function(_,i){return i;}));
-      tLoad();
-    });
-
+    // Pick one random question per page load
     tOrder = tShuffle(TTT_Q.map(function(_,i){return i;}));
     tLoad();
 
