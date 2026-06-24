@@ -91,18 +91,17 @@
     .site-footer__logo-img:hover { opacity:1; }
 
     /* TRIVIA */
-    .trivia { background:#FAF6F0; padding:1.5rem clamp(1.25rem,4vw,2.5rem); }
+    .trivia { background:#f0f8ff; padding:1.5rem clamp(1.25rem,4vw,2.5rem); }
     .trivia__inner { max-width:1200px; margin-inline:auto; }
-    .trivia__heading { font-family:'Lora',serif; font-size:1.1rem; font-weight:700; color:#2a1a0a; line-height:1.25; margin:0 0 0.75rem; display:flex; align-items:center; gap:0.6rem; }
-    .trivia__heading::before { content:''; display:block; width:22px; height:1.5px; background:#B5763A; border-radius:1px; flex-shrink:0; }
+    .trivia__heading { font-family:'Lora',serif; font-size:1.1rem; font-weight:700; color:#2a1a0a; line-height:1.25; margin:0 0 0.75rem; }
     .trivia__card { background:#fff; border:1px solid rgba(181,118,58,0.18); border-radius:12px; padding:1.1rem 0; display:grid; grid-template-columns:1fr 1fr 1fr; }
     .trivia__col { padding:0 1.25rem; }
     .trivia__col + .trivia__col { border-left:1px solid rgba(181,118,58,0.12); }
     .trivia__meta { font-family:'DM Sans',sans-serif; font-size:0.68rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:#8a6040; margin:0 0 0.5rem; }
     .trivia__q { font-family:'Lora',serif; font-size:0.92rem; color:#2a1a0a; line-height:1.6; margin:0; }
     .trivia__opts { display:flex; flex-direction:column; gap:0.35rem; }
-    .trivia__opt { display:flex; align-items:flex-start; gap:0.55rem; padding:0.45rem 0.75rem; background:#FAF6F0; border:1px solid rgba(181,118,58,0.2); border-radius:7px; cursor:pointer; font-family:'DM Sans',sans-serif; font-size:0.82rem; color:#3a2010; line-height:1.4; text-align:left; width:100%; transition:background 0.15s, border-color 0.15s; }
-    .trivia__opt:hover:not(:disabled) { background:#FAF0E0; border-color:#B5763A; }
+    .trivia__opt { display:flex; align-items:flex-start; gap:0.55rem; padding:0.45rem 0.75rem; background:#f0f8ff; border:1px solid rgba(181,118,58,0.2); border-radius:7px; cursor:pointer; font-family:'DM Sans',sans-serif; font-size:0.82rem; color:#3a2010; line-height:1.4; text-align:left; width:100%; transition:background 0.15s, border-color 0.15s; }
+    .trivia__opt:hover:not(:disabled) { background:#e0f0ff; border-color:#B5763A; }
     .trivia__opt:disabled { cursor:default; }
     .trivia__opt.t-correct { background:#f0fae8; border-color:#7ab648; color:#1e4a06; }
     .trivia__opt.t-wrong { background:#fdf0ee; border-color:#d97355; color:#5a1a0a; }
