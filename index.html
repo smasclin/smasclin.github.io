@@ -90,6 +90,55 @@
     .site-footer__logo-img { height:72px; width:auto; display:block; opacity:0.9; transition:opacity 200ms; }
     .site-footer__logo-img:hover { opacity:1; }
 
+    /* TRIVIA */
+    .trivia { background:#FAF6F0; padding:2rem clamp(1.25rem,4vw,2.5rem); }
+    .trivia__inner { max-width:1200px; margin-inline:auto; }
+    .trivia__kicker { display:inline-flex; align-items:center; gap:0.5rem; font-family:'DM Sans',sans-serif; font-size:0.68rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:#B5763A; margin-bottom:0.4rem; }
+    .trivia__kicker::before { content:''; display:block; width:22px; height:1.5px; background:#B5763A; border-radius:1px; }
+    .trivia__heading { font-family:'Lora',serif; font-size:1.2rem; font-weight:700; color:#2a1a0a; line-height:1.25; margin:0 0 1rem; }
+    .trivia__card { background:#fff; border:1px solid rgba(181,118,58,0.18); border-radius:12px; padding:1.25rem 1.5rem; display:grid; grid-template-columns:1fr 1fr; gap:0; min-height:280px; }
+    .trivia__left { padding-right:1.5rem; border-right:1px solid rgba(181,118,58,0.12); display:flex; flex-direction:column; }
+    .trivia__right { padding-left:1.5rem; display:flex; flex-direction:column; justify-content:center; }
+    .trivia__meta { font-family:'DM Sans',sans-serif; font-size:0.65rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:#B5763A; margin:0 0 0.4rem; }
+    .trivia__q { font-family:'Lora',serif; font-size:0.95rem; color:#2a1a0a; line-height:1.6; margin:0 0 0.85rem; }
+    .trivia__opts { display:flex; flex-direction:column; gap:0.4rem; }
+    .trivia__opt { display:flex; align-items:flex-start; gap:0.6rem; padding:0.5rem 0.85rem; background:#FAF6F0; border:1px solid rgba(181,118,58,0.2); border-radius:8px; cursor:pointer; font-family:'DM Sans',sans-serif; font-size:0.84rem; color:#3a2010; line-height:1.45; text-align:left; width:100%; transition:background 0.15s, border-color 0.15s; }
+    .trivia__opt:hover:not(:disabled) { background:#FAF0E0; border-color:#B5763A; }
+    .trivia__opt:disabled { cursor:default; }
+    .trivia__opt.t-correct { background:#f0fae8; border-color:#7ab648; color:#1e4a06; }
+    .trivia__opt.t-wrong { background:#fdf0ee; border-color:#d97355; color:#5a1a0a; }
+    .trivia__opt.t-reveal { background:#f0fae8; border-color:#7ab648; color:#1e4a06; opacity:0.65; }
+    .t-opt-key { font-weight:700; min-width:16px; color:#B5763A; flex-shrink:0; font-size:0.8rem; }
+    .trivia__opt.t-correct .t-opt-key,
+    .trivia__opt.t-reveal .t-opt-key { color:#3a7a10; }
+    .trivia__opt.t-wrong .t-opt-key { color:#a03010; }
+    .trivia__actions { margin-top:auto; padding-top:0.85rem; display:flex; align-items:center; gap:0.6rem; flex-wrap:wrap; }
+    .trivia__btn { font-family:'DM Sans',sans-serif; font-size:0.8rem; font-weight:500; padding:0.4rem 1rem; border-radius:100px; border:1.5px solid #B5763A; background:transparent; color:#B5763A; cursor:pointer; display:none; transition:background 0.15s, color 0.15s; }
+    .trivia__btn:hover { background:#B5763A; color:#fff; }
+    .trivia__btn.t-vis { display:inline-block; }
+    .trivia__score { font-family:'DM Sans',sans-serif; font-size:0.75rem; color:#8a6040; margin-left:auto; display:none; }
+    .trivia__score.t-vis { display:block; }
+    .trivia__counter { font-family:'DM Sans',sans-serif; font-size:0.72rem; color:#8a6040; margin-bottom:0.5rem; }
+    .trivia__progress { display:flex; gap:4px; margin-bottom:1rem; }
+    .t-dot { width:7px; height:7px; border-radius:50%; background:rgba(181,118,58,0.2); transition:background 0.2s; flex-shrink:0; }
+    .t-dot.t-done-ok { background:#7ab648; }
+    .t-dot.t-done-miss { background:#d97355; }
+    .t-dot.t-current { background:#B5763A; }
+    .trivia__feedback { display:flex; flex-direction:column; gap:0.5rem; }
+    .trivia__feedback.t-empty { justify-content:center; }
+    .t-fb-placeholder { font-family:'DM Sans',sans-serif; font-size:0.85rem; color:rgba(181,118,58,0.4); font-style:italic; text-align:center; line-height:1.6; }
+    .t-fb-headline { font-family:'DM Sans',sans-serif; font-size:0.9rem; font-weight:600; margin:0; }
+    .t-fb-correct .t-fb-headline { color:#2a5a08; }
+    .t-fb-wrong .t-fb-headline { color:#7a2808; }
+    .t-fb-detail { font-family:'DM Sans',sans-serif; font-size:0.83rem; line-height:1.65; color:#4a3020; margin:0; }
+    .t-fb-ref { font-family:'DM Sans',sans-serif; font-size:0.73rem; color:#8a6040; font-style:italic; margin:0; }
+    .t-fb-divider { border:none; border-top:1px solid rgba(181,118,58,0.15); margin:0.1rem 0; }
+    @media (max-width:760px) {
+      .trivia__card { grid-template-columns:1fr; min-height:auto; }
+      .trivia__left { padding-right:0; border-right:none; border-bottom:1px solid rgba(181,118,58,0.12); padding-bottom:1rem; margin-bottom:1rem; }
+      .trivia__right { padding-left:0; }
+    }
+
     /* RESPONSIVE */
     @media (max-width:960px) {
       .hero__inner { grid-template-columns:1fr; gap:2.5rem; }
@@ -137,6 +186,7 @@
         <li><a href="index.html" class="active">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="teaching.html">Teaching</a></li>
+        <li><a href="academic.html">Academic</a></li>
         <li><a href="resources.html">Resources</a></li>
       </ul>
     </div>
@@ -175,6 +225,34 @@
           <div class="hslide-dots" id="slide-dots" aria-label="Slideshow navigation"></div>
         </div>
 
+      </div>
+    </section>
+
+    <!-- TRIVIA SECTION -->
+    <section class="trivia" aria-labelledby="trivia-heading">
+      <div class="trivia__inner">
+        <p class="trivia__kicker">Tuesday Teaching Tips</p>
+        <h2 class="trivia__heading" id="trivia-heading">Pedagogy Trivia</h2>
+
+        <div class="trivia__progress" id="t-progress" aria-hidden="true"></div>
+        <div class="trivia__card">
+          <div class="trivia__left">
+            <p class="trivia__counter" id="t-counter"></p>
+            <p class="trivia__meta" id="t-meta"></p>
+            <p class="trivia__q" id="t-q"></p>
+            <div class="trivia__opts" id="t-opts" role="list"></div>
+            <div class="trivia__actions">
+              <button class="trivia__btn" id="t-next">Next question →</button>
+              <button class="trivia__btn" id="t-restart">Start over</button>
+              <span class="trivia__score" id="t-score"></span>
+            </div>
+          </div>
+          <div class="trivia__right">
+            <div class="trivia__feedback t-empty" id="t-feedback" role="alert" aria-live="polite">
+              <p class="t-fb-placeholder">Select an answer to reveal the explanation.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -306,6 +384,173 @@
       const open = navLinks.classList.toggle('open');
       navToggle.setAttribute('aria-expanded', open);
     });
+    // ── Trivia ─────────────────────────────────────────────────
+    var TTT_Q = [
+      { type:'tf', topic:'TTT S26-01 · Welcome Students with Connection',
+        q:'True or false: Running a brief ice-breaker on the first day of class is mostly a time-waster that delays covering course content.',
+        opts:['True','False'], correct:1,
+        win:'Exactly right! 🎉', lose:'Not quite — let\'s flip that assumption!',
+        detail:'First-day ice-breakers are a high-ROI investment. They build peer connections that support future collaborative work, signal to students that you\'re excited to work with them, and create the psychological safety that actually accelerates learning throughout the semester.',
+        ref:'TTT S26-01: Welcome Students with Connection' },
+      { type:'mc', topic:'TTT F25-03 · Teaching in the TikTok News Era',
+        q:'A 2024 survey of 253 UC Merced students found that the leading daily news source for students was:',
+        opts:['A. Newspapers (print or online)','B. TikTok','C. TV news','D. Podcasts'], correct:1,
+        win:'Nailed it! 🎯', lose:'Not quite — the answer might surprise you!',
+        detail:'78% of surveyed students used social media for daily news, with TikTok leading at 40%. This challenges our assumptions about how students encounter information — and makes source evaluation skills more important than ever to weave into any discipline.',
+        ref:'TTT F25-03: Teaching in the TikTok News Era' },
+      { type:'tf', topic:'TTT S26-02 · When Low-Tech Wins',
+        q:'True or false: Printed group activities tend to generate stronger peer collaboration than equivalent digital activities.',
+        opts:['True','False'], correct:0,
+        win:'You got it! ✅', lose:'Counterintuitive — but true!',
+        detail:'Based on classroom observation across small and large classes, printed activities with one sheet per group of ~4 students spark more face-to-face conversation. Students talk and share ideas rather than scrolling on their own screens. Bonus: faster to prepare and no internet dependency.',
+        ref:'TTT S26-02: When Low-Tech Wins' },
+      { type:'mc', topic:'TTT · Mid-Lecture Re-Engagement',
+        q:'Which of the following is a quick, effective technique for re-engaging students during a long lecture?',
+        opts:['A. Speed through the remaining slides','B. A one-minute paper — students write their biggest question','C. Show a video clip (10+ minutes)','D. Open Q&A with no structure'], correct:1,
+        win:'Spot on! ⭐', lose:'Close — there\'s a better option here!',
+        detail:'A One-Minute Paper is a classic active learning micro-break: students write the most important point they just heard, or their biggest lingering question. It re-engages cognition, gives you formative feedback, and costs almost no class time.',
+        ref:'TTT · Micro-Breaks & Re-Engagement' },
+      { type:'tf', topic:'TTT #8 · AI Detectors',
+        q:'True or false: AI detection tools are reliable enough to be used as evidence in academic integrity cases.',
+        opts:['True','False'], correct:1,
+        win:'Correct! 🎉', lose:'Be careful — the evidence says otherwise!',
+        detail:'AI detectors have significant false-positive rates and can flag human-written text as AI-generated, especially for non-native English speakers. The better strategy is designing assignments that are harder to complete with AI alone.',
+        ref:'TTT #8: In AI Detectors, Trust You Won\'t' },
+      { type:'mc', topic:'TTT #10 · AI-Proof Your Assignments',
+        q:'When redesigning assignments to be more resistant to AI misuse, which approach also develops higher-order thinking?',
+        opts:['A. More multiple-choice quizzes','B. Stricter word limits on essays','C. Portfolio, oral, or media-production assignments','D. Unannounced pop quizzes'], correct:2,
+        win:'Excellent! 🌟', lose:'Think about Bloom\'s Taxonomy here!',
+        detail:'Portfolios, oral presentations, infographics, and media projects require students to analyze, evaluate, and create — the top tiers of Bloom\'s Taxonomy. These are harder to outsource to AI and also richer educational experiences.',
+        ref:'TTT #10: AI-Proof Your Assignments' },
+      { type:'tf', topic:'TTT F25-11 · Study Guides',
+        q:'True or false: Providing students with detailed study guides always leads to better learning outcomes than having them build their own.',
+        opts:['True','False'], correct:1,
+        win:'Right! 🎯', lose:'The research is more nuanced than it seems!',
+        detail:'Study guides can help students navigate dense material, but detailed ones risk creating passive learners. The sweet spot is structured guidance (key topics, essential terms) without writing the study guide for them — preserving the cognitive work that builds memory.',
+        ref:'TTT F25-11: To Guide or Not to Guide?' },
+      { type:'mc', topic:'TTT · Mid-Semester Check-In',
+        q:'What is the main advantage of a mid-semester student check-in over waiting for end-of-semester evaluations?',
+        opts:['A. It counts as active learning time','B. Feedback can be acted on during the same semester','C. It replaces the need for office hours','D. It improves final exam scores automatically'], correct:1,
+        win:'Yes — that\'s the key insight! ✅', lose:'Think about timing — when can feedback actually be useful?',
+        detail:'End-of-semester evaluations help future students; mid-semester check-ins help the students in front of you right now. A simple three-question survey (what\'s helping, what\'s challenging, what would you change) shows students you care and lets you make real adjustments mid-course.',
+        ref:'TTT · Mid-Semester Student Feedback' },
+      { type:'tf', topic:'TTT F25-03 · Information Literacy',
+        q:'True or false: Discussing source evaluation in class is only relevant for journalism or media studies courses.',
+        opts:['True','False'], correct:1,
+        win:'Absolutely correct! 🎉', lose:'Think broader — this applies to every discipline!',
+        detail:'In any discipline, students need to evaluate the credibility, bias, and context of information. Whether you teach environmental science, biology, or literature, helping students cross-reference sources builds critical thinking that serves them everywhere.',
+        ref:'TTT F25-03: Teaching in the TikTok News Era' },
+      { type:'mc', topic:'TTT S26-01 · First Week Strategies',
+        q:'What should an instructor\'s first-day self-introduction ideally accomplish?',
+        opts:['A. Cover the full syllabus in detail','B. Show students you are a person, not just a title','C. Establish firm disciplinary boundaries','D. Administer a diagnostic quiz'], correct:1,
+        win:'Perfectly said! 🌟', lose:'There\'s a better use of that first meeting!',
+        detail:'Sharing personal context — why you love the subject, where you\'re from, what your hobbies are — helps students see you as a full human being. This lowers anxiety, increases approachability, and sets a collaborative tone for the semester.',
+        ref:'TTT S26-01: Welcome Students with Connection' },
+      { type:'tf', topic:'TTT #10 · Canvas & Browser Extensions',
+        q:'True or false: Browser extensions can now read Canvas (Catcourses) quizzes and suggest answers to students in real time.',
+        opts:['True','False'], correct:0,
+        win:'Correct — and worth knowing! ⚠️', lose:'Unfortunately this is true — and it changes how we think about online quizzes!',
+        detail:'Tools like Canvas Quiz Solver can scan quiz content and suggest answers. This means any online take-home quiz is potentially vulnerable. Designing assessments that require application and analysis — not recall alone — is a more durable response.',
+        ref:'TTT #10: AI-Proof Your Assignments' },
+      { type:'mc', topic:'TTT S26-02 · Accountability in Group Work',
+        q:'When distributing a printed group activity, what simple accountability strategy is recommended?',
+        opts:['A. Assign a group leader who grades peers','B. Have students write their names on the sheet','C. Collect phones during the activity','D. Require a written reflection afterward'], correct:1,
+        win:'Simple and effective — exactly right! ✅', lose:'Think simple — the best solutions often are!',
+        detail:'Having students write their names on a shared activity sheet creates lightweight accountability without surveillance or complexity. It signals that participation matters and makes it easy to give participation credit via a follow-up keyword quiz on Canvas.',
+        ref:'TTT S26-02: When Low-Tech Wins' }
+    ];
+
+    var tOrder = [], tIdx = 0, tResults = [], tAnswered = false;
+
+    function tShuffle(arr) {
+      var a = arr.slice();
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+      }
+      return a;
+    }
+
+    function tBuildProgress() {
+      var row = document.getElementById('t-progress');
+      row.innerHTML = '';
+      tOrder.forEach(function(_, i) {
+        var d = document.createElement('div');
+        d.className = 't-dot';
+        if (i < tIdx) d.classList.add(tResults[i] ? 't-done-ok' : 't-done-miss');
+        else if (i === tIdx) d.classList.add('t-current');
+        row.appendChild(d);
+      });
+    }
+
+    function tLoad() {
+      tAnswered = false;
+      var q = TTT_Q[tOrder[tIdx]];
+      var keys = ['A','B','C','D'];
+      document.getElementById('t-counter').textContent = 'Question ' + (tIdx + 1) + ' of ' + tOrder.length;
+      document.getElementById('t-meta').textContent = q.type === 'tf' ? 'True / False' : 'Multiple choice';
+      document.getElementById('t-q').textContent = q.q;
+      var opts = document.getElementById('t-opts');
+      opts.innerHTML = '';
+      q.opts.forEach(function(o, i) {
+        var btn = document.createElement('button');
+        btn.className = 'trivia__opt';
+        btn.setAttribute('role', 'listitem');
+        var keyLabel = q.type === 'tf' ? (i === 0 ? 'T' : 'F') : keys[i];
+        btn.innerHTML = '<span class="t-opt-key" aria-hidden="true">' + keyLabel + '</span><span>' + o + '</span>';
+        btn.addEventListener('click', function() { tAnswer(i, q); });
+        opts.appendChild(btn);
+      });
+      var fb = document.getElementById('t-feedback');
+      fb.className = 'trivia__feedback t-empty';
+      fb.innerHTML = '<p class="t-fb-placeholder">Select an answer to reveal the explanation.</p>';
+      document.getElementById('t-next').classList.remove('t-vis');
+      document.getElementById('t-restart').classList.remove('t-vis');
+      document.getElementById('t-score').classList.remove('t-vis');
+      tBuildProgress();
+    }
+
+    function tAnswer(chosen, q) {
+      if (tAnswered) return;
+      tAnswered = true;
+      var isOk = chosen === q.correct;
+      tResults[tIdx] = isOk;
+      var btns = document.querySelectorAll('.trivia__opt');
+      btns.forEach(function(btn, i) {
+        btn.disabled = true;
+        if (i === q.correct) btn.classList.add(isOk ? 't-correct' : 't-reveal');
+        else if (i === chosen && !isOk) btn.classList.add('t-wrong');
+      });
+      var fb = document.getElementById('t-feedback');
+      fb.className = 'trivia__feedback ' + (isOk ? 't-fb-correct' : 't-fb-wrong');
+      fb.innerHTML =
+        '<p class="t-fb-headline">' + (isOk ? q.win : q.lose) + '</p>' +
+        '<hr class="t-fb-divider">' +
+        '<p class="t-fb-detail">' + q.detail + '</p>' +
+        '<p class="t-fb-ref">📌 ' + q.ref + '</p>';
+      tBuildProgress();
+      var isLast = tIdx === tOrder.length - 1;
+      if (!isLast) {
+        document.getElementById('t-next').classList.add('t-vis');
+      } else {
+        document.getElementById('t-restart').classList.add('t-vis');
+        var score = tResults.filter(Boolean).length;
+        var sc = document.getElementById('t-score');
+        sc.textContent = score + '/' + tOrder.length + ' correct — nice work!';
+        sc.classList.add('t-vis');
+      }
+    }
+
+    document.getElementById('t-next').addEventListener('click', function() { tIdx++; tLoad(); });
+    document.getElementById('t-restart').addEventListener('click', function() {
+      tIdx = 0; tResults = [];
+      tOrder = tShuffle(TTT_Q.map(function(_,i){return i;}));
+      tLoad();
+    });
+
+    tOrder = tShuffle(TTT_Q.map(function(_,i){return i;}));
+    tLoad();
+
   </script>
 
 </body>
