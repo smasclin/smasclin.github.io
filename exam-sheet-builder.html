@@ -10,25 +10,25 @@
 <style>
 /* Layout: a working desk — editor panel on the left, printed letter pages laid out on the right. */
 :root{
-  --bg:#e9eeeb; --panel:#ffffff; --ink:#16201b; --muted:#5a6a62; --line:#d3dcd7;
-  --accent:#1f6a4e; --accent-ink:#ffffff; --accent-soft:#dcebe4;
+  --bg:#f0f8ff; --panel:#ffffff; --ink:#0d2233; --muted:#4a6d8c; --line:#d6e8f5;
+  --accent:#FF7E00; --accent-ink:#0d2233; --accent-soft:#fff0e0;
   --warn:#9a5800; --warn-soft:#fbefdc; --bad:#b0291f; --bad-soft:#f9e1de;
-  --desk:#cfd8d3; --code-bg:#f5f8f6;
+  --desk:#dbe8f4; --code-bg:#f8fcff;
   --ui:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
   --serif:"Times New Roman", Tinos, "Liberation Serif", Times, serif;
   --sans:Calibri, Carlito, "Liberation Sans", Arial, sans-serif;
 }
 @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
-  --bg:#111714; --panel:#18201c; --ink:#e2ebe6; --muted:#98a8a0; --line:#2b3631;
-  --accent:#62c29a; --accent-ink:#08130e; --accent-soft:#1d3329;
+  --bg:#0a1a27; --panel:#0d2233; --ink:#f0f8ff; --muted:#9fb8cf; --line:#1f3a52;
+  --accent:#FF9A33; --accent-ink:#0d2233; --accent-soft:#3a2510;
   --warn:#e7a54a; --warn-soft:#33270f; --bad:#ef8a80; --bad-soft:#3a1b18;
-  --desk:#0b0f0d; --code-bg:#121915; color-scheme:dark } }
+  --desk:#071420; --code-bg:#0b1d2c; color-scheme:dark } }
 :root[data-theme="dark"]{
-  --bg:#111714; --panel:#18201c; --ink:#e2ebe6; --muted:#98a8a0; --line:#2b3631;
-  --accent:#62c29a; --accent-ink:#08130e; --accent-soft:#1d3329;
+  --bg:#0a1a27; --panel:#0d2233; --ink:#f0f8ff; --muted:#9fb8cf; --line:#1f3a52;
+  --accent:#FF9A33; --accent-ink:#0d2233; --accent-soft:#3a2510;
   --warn:#e7a54a; --warn-soft:#33270f; --bad:#ef8a80; --bad-soft:#3a1b18;
-  --desk:#0b0f0d; --code-bg:#121915; color-scheme:dark }
+  --desk:#071420; --code-bg:#0b1d2c; color-scheme:dark }
 
 *{box-sizing:border-box}
 [hidden]{display:none!important}
@@ -201,6 +201,12 @@ h3.ph:first-child{margin-top:0}
   #printRoot .page{break-after:page;margin:0;box-shadow:none}
   #printRoot .page:last-child{break-after:auto}
 }
+
+/* smasclin.com touches: orange line under toolbar; readable "ok" chips; navy focus ring in light mode */
+.topbar{box-shadow:inset 0 -2px 0 var(--accent)}
+:root:not([data-theme="dark"]) .chip.ok{color:#a85400}
+:root:not([data-theme="dark"]) :focus-visible{outline-color:#0d2233}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .chip.ok{color:var(--accent)} :root:not([data-theme="light"]) :focus-visible{outline-color:var(--accent)} }
 </style>
 </head>
 <body>
@@ -214,12 +220,12 @@ h3.ph:first-child{margin-top:0}
   <div class="main">
     <aside class="side">
       <div class="tabs" role="tablist">
-        <button class="tab" role="tab" aria-selected="true" data-pane="pQ" id="tabQ">Questions<span class="count" id="issueCount" hidden>0</span></button>
+        <button class="tab" role="tab" aria-selected="true" data-pane="pG" id="tabG">Format guide</button>
+        <button class="tab" role="tab" aria-selected="false" data-pane="pQ" id="tabQ">Questions<span class="count" id="issueCount" hidden>0</span></button>
         <button class="tab" role="tab" aria-selected="false" data-pane="pS" id="tabS">Exam details</button>
         <button class="tab" role="tab" aria-selected="false" data-pane="pF" id="tabF">Figures<span class="count" id="figCount" hidden>0</span></button>
-        <button class="tab" role="tab" aria-selected="false" data-pane="pG" id="tabG">Format guide</button>
       </div>
-      <section class="pane editor" id="pQ">
+      <section class="pane editor" id="pQ" hidden>
         <textarea id="src" spellcheck="true" aria-label="Exam questions"></textarea>
         <div class="issues" id="issues"></div>
       </section>
@@ -262,7 +268,7 @@ h3.ph:first-child{margin-top:0}
         <p class="hint">Use a figure in your text with <code>{figure: file-name.jpg}</code>. Figures are saved inside the project file, not on a server.</p>
         <div class="figlist" id="figlist"></div>
       </section>
-      <section class="pane guide" id="pG" hidden></section>
+      <section class="pane guide" id="pG"></section>
     </aside>
     <section class="viewer">
       <div class="vbar">
